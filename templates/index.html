@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Echoes of Exploration | NASA Space Apps</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/space-redesign.css', v='54') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/space-v56.css', v='56') }}">
 </head>
 <body>
   <header class="topbar">
@@ -12,10 +14,36 @@
     <div class="topbar-right"><span class="tag">PROTOTIPO EDUCATIVO</span><a href="#fuentes">Fuentes NASA ↗</a></div>
   </header>
   <main>
-    <section id="inicio" class="intro">
+    <section class="intro space-section">
       <div class="eyebrow">NASA SPACE APPS CHALLENGE · EXPERIENCIA INTERACTIVA</div>
       <h1>Las misiones terminan.<br><span>Sus historias permanecen.</span></h1>
       <p>Viaja a través del tiempo, explora los equipos que quedaron en otros mundos y descubre cómo cambiaron nuestra comprensión del universo.</p>
+
+<!-- Decoraciones de la portada -->
+<div class="space-decor rocket"
+     style="top: 100px; right: 25%;">
+  🚀
+</div>
+
+<div class="space-decor star"
+     style="top: 80px; left: 8%;">
+  ✦
+</div>
+
+<div class="space-decor star"
+     style="bottom: 65px; right: 25%;">
+  ✦
+</div>
+
+<div class="space-decor satellite"
+     style="top: 55px; right: 8%;">
+  🛰️
+</div>
+
+<div class="space-decor planet blue ring"
+     style="width: 85px; height: 85px; left: 3%; bottom: 25px;">
+</div>
+
       <div class="orb orb-one"></div><div class="orb orb-two"></div>
     </section>
     <section id="explorar" class="explore">
@@ -85,5 +113,7 @@
   <footer>✦ ECHOES OF EXPLORATION <span>Built with curiosity · 2026</span></footer>
   <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"}}</script>
   <script type="module" src="{{ url_for('static', filename='js/main.js', v='530') }}"></script>
+  <script defer src="{{ url_for('static', filename='js/space-redesign.js', v='54') }}"></script>
+  <script defer src="{{ url_for('static', filename='js/space-v56.js', v='56') }}"></script>
 </body>
 </html>

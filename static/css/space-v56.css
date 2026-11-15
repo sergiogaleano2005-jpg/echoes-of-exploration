@@ -1,0 +1,71 @@
+/* ECHOES 5.6 — complemento ilustrado. Cargar DESPUÉS de space-redesign.css.
+   Sin cambios a Three.js, misiones, historias ni lógica educativa. */
+:root{--v56-cream:#EBEBD3;--v56-yellow:#F4D35E;--v56-peach:#F7C59F;--v56-orange:#F46036;--v56-magenta:#AF0069;--v56-turquoise:#00AFB9;--v56-blue:#004E89;--v56-space:#09015F}
+body{background:radial-gradient(ellipse at 7% 22%,rgba(0,175,185,.15),transparent 36%),radial-gradient(ellipse at 89% 55%,rgba(175,0,105,.13),transparent 40%),#080c20}
+/* Header y portada llenos de detalles — sin ocultar textos */
+.topbar{border-bottom:1px solid #89dcef5c;background:linear-gradient(100deg,#0b1026ee,#161a49ee 52%,#09172cee)}
+.brand-icon{filter:drop-shadow(0 0 10px #89ecff)}
+.intro{isolation:isolate;overflow:hidden;position:relative;min-height:540px;background:radial-gradient(ellipse at 74% 45%,#23496c 0%,transparent 42%),radial-gradient(ellipse at 10% 88%,#19194d 0%,transparent 44%),linear-gradient(115deg,#090f2d,#10133d 65%,#0b132c)}
+.intro::before{content:'';position:absolute;pointer-events:none;inset:0;z-index:-1;background:radial-gradient(circle at 33% 15%,#f9f3c1 1.6px,transparent 2.6px),radial-gradient(circle at 14% 60%,#9deeff 1.5px,transparent 3px),radial-gradient(circle at 60% 35%,#ffdd9b 1px,transparent 2.2px);background-size:225px 165px,310px 255px,160px 225px;opacity:.86}
+.intro::after{z-index:-1;opacity:.26}
+.intro .orb-one{background:radial-gradient(circle at 30% 28%,#f6b37d 0%,#c97458 40%,#542f49 70%,#0a122e 91%);box-shadow:0 0 75px #F4603644;right:-80px;top:115px;opacity:.94}
+.intro h1{max-width:min(900px,74%);font-size:clamp(42px,5.7vw,86px);line-height:1.05;text-shadow:0 12px 34px #0008}
+.intro h1 span{background:linear-gradient(100deg,#a0f2f5,#f4d35e);background-clip:text;color:transparent}
+.intro p{max-width:min(710px,65%);font-size:clamp(17px,1.4vw,21px)}
+.space-v56-hero{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.space-v56-hero img{position:absolute;display:block;filter:drop-shadow(0 16px 20px #0004);user-select:none}
+.space-v56-rocket{width:clamp(90px,11vw,175px);left:64%;top:5%;animation:v56-bob 5.4s ease-in-out infinite}
+.space-v56-saturn{width:clamp(130px,20vw,310px);right:1%;bottom:-16px;animation:v56-bob 8s ease-in-out infinite reverse}
+.space-v56-satellite{width:clamp(90px,12vw,165px);right:20%;top:3%;animation:v56-bob 7s ease-in-out infinite}
+.space-v56-hero .v56-star{position:absolute;color:#F4D35E;text-shadow:0 0 17px #F4D35E99;font-size:clamp(24px,3.5vw,46px);animation:v56-twinkle 3.8s ease-in-out infinite}
+.space-v56-hero .v56-star.one{left:8%;top:19%}.space-v56-hero .v56-star.two{left:58%;bottom:18%;color:#8ff2f6;animation-delay:1s}.space-v56-hero .v56-star.three{right:11%;top:13%;animation-delay:1.9s}
+.intro>.eyebrow,.intro>h1,.intro>p{position:relative;z-index:1}
+/* Encabezado y selector */
+.explore{background-image:radial-gradient(circle at 9% 40%,rgba(244,211,94,.075),transparent 21%),radial-gradient(circle at 89% 24%,rgba(0,175,185,.08),transparent 25%)}
+.section-heading h2{background:linear-gradient(110deg,#fff 45%,#9ceafa 100%);background-clip:text;color:transparent}
+.planet-card{box-shadow:0 15px 30px #0008,0 0 0 1px #70dbe733}.planet-card.selected{border-color:#8cecf5;box-shadow:0 0 0 3px #8cecf533,0 12px 35px #004E8977}
+.destination-status{display:inline-flex;align-items:center;min-height:40px;padding:8px 17px;border:1px solid #74d7e4;border-radius:40px;background:#093d505c;color:#aef4f4}
+/* Carrusel: botón contrastado, siempre legible */
+.timeline-shell{position:relative}
+.timeline-shell::after{content:'✦';pointer-events:none;position:absolute;top:0;right:3%;font-size:32px;color:#F4D35E;filter:drop-shadow(0 0 10px #F4D35E);z-index:0}
+.time-item{border-width:2px;background:linear-gradient(155deg,#243751,#101a34);box-shadow:0 15px 28px #0006}
+.time-item.active{border-color:#00e4ee!important;box-shadow:0 0 0 3px #00AFB933,0 0 29px #00AFB955,0 16px 36px #0008}
+.time-item .time-type{display:block;position:relative;z-index:2;flex-shrink:0;padding:13px 12px;min-height:48px;background:#10213d;color:#F9FCFF!important;border:2px solid var(--accent,#8ceef3);border-radius:40px;font-size:clamp(12px,1.1vw,15px);line-height:1.35;text-shadow:none!important;box-shadow:none;letter-spacing:0;white-space:normal;overflow-wrap:normal}
+.time-item.active .time-type{background:#F4D35E!important;color:#09112b!important;border:2px solid #fff0a8!important;box-shadow:0 0 17px #F4D35E66!important;font-weight:900!important}
+.time-item:hover .time-type{background:#fff6ce!important;color:#0d1d38!important}
+.time-name{font-size:clamp(22px,2vw,27px)}
+.time-item.active .time-year{background:#00AFB9;color:#061c2a}
+/* Historia con algo de color, conserva legibilidad */
+.mission-brief{position:relative;overflow:hidden;border-color:#67b7cd88;background:radial-gradient(circle at 7% 10%,#004E8955,transparent 44%),linear-gradient(135deg,#172443,#10162e)}
+.mission-brief::after{content:'✧';position:absolute;right:20px;top:18px;font-size:36px;color:#f4d35e99;pointer-events:none}
+.mission-chip{background:#F4D35E;color:#0e1933}
+.brief-story{background:linear-gradient(160deg,#152f46,#0d1831);border-color:#5cbdd680}
+/* Misión y Centro de control: más personalidad, sin solapar el canvas */
+.expedition-heading{padding:18px 22px;border-radius:22px;border:1px solid #6ad6dc55;background:linear-gradient(110deg,#10304d99,#20163f80)}
+.expedition-heading h2{color:#F4D35E}
+.score-pill{border:2px solid #f4d35e;box-shadow:0 0 24px #F4D35E20;background:linear-gradient(150deg,#124b57,#152949)}
+.viewer-panel,.expedition-panel{border-color:#6f91bd8c;box-shadow:0 18px 40px #0005}
+.viewer-panel{background:#14213b}
+.expedition-panel{position:relative;isolation:isolate;background:radial-gradient(circle at top right,#004e8933,transparent 35%),linear-gradient(165deg,#192a4d,#111c37)}
+.expedition-panel:before{content:'✦';position:absolute;z-index:-1;right:24px;top:25px;font-size:52px;color:#F4D35E88;pointer-events:none}
+.expedition-panel h3{color:#fff}
+.objective-banner{background:linear-gradient(115deg,#0e5664dd,#163f64);border:1px solid #88e9ee;box-shadow:0 7px 22px #00AFB922}
+.objective-icon{color:#F4D35E}
+.activity-card{background:linear-gradient(160deg,#1e284a,#151c39);border-color:#8ab2dd77;box-shadow:inset 0 0 35px #004E8914}
+.activity-card h4{color:#fff}
+.activity-heading span:last-child{font-size:13px;background:#F4D35E24;color:#F4D35E;border-radius:40px;padding:6px 10px}
+.activity-choice{border-width:2px;border-color:#5278a5;background:#1d3554;color:#fff}.activity-choice:hover{background:#254965;border-color:#83e8ef}
+.primary{background:#9fe6fa;color:#09172a}.primary:hover{background:#c5f3ff;color:#09172a}
+.expedition-v56-art{position:relative;pointer-events:none;display:flex;align-items:center;justify-content:space-between;margin:-2px 4px -8px;min-height:54px}
+.expedition-v56-art img{width:88px;height:60px;object-fit:contain;filter:drop-shadow(0 7px 6px #0005)}
+.expedition-v56-art .v56-note{font-size:12px;font-weight:900;letter-spacing:1.5px;color:#9ee5f2;text-transform:uppercase}
+.viewer-bar{background:linear-gradient(90deg,#152643,#12384d)}.drive-console{background:linear-gradient(110deg,#132b48,#191a3c)}
+/* Pie con ilustración */
+.sources{position:relative;overflow:hidden;background:radial-gradient(circle at 96% 20%,#004E893c,transparent 30%),#0c142d;border-top:1px solid #49779d}
+.sources::after{content:'';position:absolute;right:1%;bottom:12%;width:140px;height:110px;pointer-events:none;background:url('../images/design/satellite.svg') center/contain no-repeat;opacity:.45}
+footer{background:#090d26;border-top:1px solid #57739d}
+@keyframes v56-bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-13px) rotate(4deg)}}
+@keyframes v56-twinkle{0%,100%{opacity:.45;transform:scale(.85)}50%{opacity:1;transform:scale(1.14)}}
+@media(max-width:1050px){.space-v56-rocket{left:76%;top:7%;width:105px}.space-v56-satellite{display:none}.space-v56-saturn{right:-35px;bottom:18px;width:190px}.intro h1{max-width:85%}.intro p{max-width:75%}}
+@media(max-width:700px){.intro{min-height:465px;padding-top:82px}.intro h1{max-width:100%;font-size:clamp(34px,8.3vw,52px)}.intro p{max-width:100%}.space-v56-rocket{width:65px;left:auto;right:5%;top:2%}.space-v56-saturn{width:120px;right:-35px;bottom:-20px;opacity:.75}.space-v56-hero .v56-star.three{display:none}.time-item .time-type{font-size:13px}.expedition-v56-art img{width:65px}.expedition-v56-art .v56-note{font-size:10px}.expedition-heading{padding:12px}.sources::after{opacity:.12}}
+@media(prefers-reduced-motion:reduce){.space-v56-hero img,.space-v56-hero .v56-star{animation:none!important}}

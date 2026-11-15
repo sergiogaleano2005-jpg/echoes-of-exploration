@@ -1,0 +1,970 @@
+/* Echoes V5.4 — capa visual no destructiva. Cargar DESPUÉS de style.css */
+:root{--space:#09015F;--deep:#080e22;--navy:#004E89;--cyan:#00AFB9;--peach:#F7C59F;--orange:#F46036;--magenta:#AF0069;--yellow:#F4D35E;--cream:#EBEBD3;--line:#354665;color:#f8f8ff;background:#080c1d}
+body{background:radial-gradient(ellipse at 80% 18%,#182a55 0,transparent 38%),#080c1d;color:#f7f8ff;overflow-x:hidden}
+button:focus-visible,a:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+.topbar{position:relative;z-index:3;background:#0a1025e8;backdrop-filter:blur(15px);border-bottom:1px solid #61779e55;min-height:72px}
+.brand{letter-spacing:2.1px}.brand-icon{color:#8ce8f3}.tag{border-color:#80b6d866;border-radius:30px}
+.intro{min-height:430px;padding-top:72px;padding-bottom:72px;background:radial-gradient(circle at 79% 50%,#1c4170 0%,#101a39 29%,#090d20 71%)}
+.intro::after{content:'';position:absolute;inset:0;opacity:.5;pointer-events:none;background-image:radial-gradient(#c5ecff 1px,transparent 1.5px),radial-gradient(#fff 1px,transparent 1.5px);background-position:0 0,42px 51px;background-size:147px 139px,223px 193px}
+.intro h1{max-width:940px;font-size:clamp(39px,6.2vw,82px);letter-spacing:-2.8px;text-wrap:balance}.intro h1 span{color:#91ecfa}.intro p{font-size:clamp(16px,1.35vw,20px);color:#c2d7ec}
+.orb-one{background:radial-gradient(circle at 28% 27%,#cd8f69,#a44938 40%,#4e2636 65%,#0c122a 78%);box-shadow:0 0 95px #f4603630;opacity:.82;right:-90px;top:85px}
+.explore{max-width:1720px;padding-top:65px;padding-bottom:80px}.eyebrow{color:#8ce5f5;font-size:12px;letter-spacing:2.5px}
+.section-heading h2{font-size:clamp(32px,4.2vw,62px);font-weight:900;letter-spacing:-2px;max-width:900px;text-wrap:balance}.section-heading p{font-size:17px;color:#b3c6df}
+.destination-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:23px}
+.planet-card{position:relative;min-height:225px;border:2px solid #607ca6;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,#182848,#0b1023);text-align:left;color:white;box-shadow:0 20px 38px #0005;transition:transform .2s,border-color .2s,box-shadow .2s}
+.planet-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s;filter:saturate(1.06)}
+.planet-card::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#080b1dbf,#080b1d1a 77%),linear-gradient(0deg,#06091fc2,transparent 70%)}
+.planet-card:hover{transform:translateY(-4px);border-color:var(--cyan)}.planet-card:hover img{transform:scale(1.045)}
+.planet-card.selected{border-color:#8ce8fa;box-shadow:0 0 0 3px #8ce8fa25,0 18px 40px #0007}
+.planet-info{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;min-height:225px;padding:27px}
+.planet-info strong{font-size:clamp(27px,3vw,43px);font-weight:900;letter-spacing:-1px}.planet-info small{font-size:14px;margin-top:10px}.planet-label{font-size:11px;font-weight:900;letter-spacing:2.5px;color:#b9f6ff}
+.destination-status{margin-top:28px;color:#a8eaf7;letter-spacing:1.5px;font-weight:800;font-size:14px}
+/* Carrusel: conserva los botones originales y sus listeners */
+.timeline-shell{position:relative;padding:0 38px}.timeline{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;gap:18px;padding:20px 4px 35px;scrollbar-width:thin;scrollbar-color:#537ca2 #111c35}
+.time-item{--accent:var(--cyan);position:relative;flex:0 0 clamp(220px,24vw,300px);min-width:0;min-height:385px;scroll-snap-align:start;overflow:hidden;border:2px solid var(--accent);border-radius:21px;background:#131d34;color:#f9fbff;padding:217px 19px 22px;display:flex;align-items:flex-start;gap:7px;box-shadow:0 12px 28px #0006;transition:transform .18s,box-shadow .18s}
+.time-item::before{content:'';position:absolute;left:0;right:0;top:0;height:205px;background-image:var(--mission-art);background-size:cover;background-position:center;filter:saturate(1.07);transition:transform .28s}
+.time-item::after{content:'';position:absolute;top:148px;left:0;right:0;height:62px;background:linear-gradient(transparent,#131d34)}
+.time-item:hover{transform:translateY(-5px);box-shadow:0 18px 38px #0009;border-color:var(--accent)}.time-item:hover::before{transform:scale(1.05)}
+.time-item.active{background:linear-gradient(180deg,#223d52,#13243a);box-shadow:0 0 0 2px var(--accent),0 0 24px color-mix(in srgb,var(--accent) 25%,transparent)}
+.time-year{position:relative;z-index:1;background:var(--accent);color:#0d1222;padding:7px 13px;border-radius:20px;font-size:13px;font-weight:900;max-width:max-content;margin-bottom:4px}
+.time-name{font-size:24px;letter-spacing:-.6px;line-height:1.15;font-weight:900;margin:8px 0}
+.time-type{font-weight:800;color:#cee8fd;font-size:14px;margin-top:auto;border:1px solid var(--accent);border-radius:30px;padding:10px 14px;width:100%;text-align:center}
+.time-item.active .time-type{background:var(--accent);color:#091323}
+.timeline-arrow{position:absolute;top:46%;transform:translateY(-50%);z-index:2;width:41px;height:51px;border:1px solid #76b9d8;border-radius:18px;color:#d6faff;background:#142443e8;box-shadow:0 9px 20px #0008;font-size:26px}.timeline-arrow:hover{background:#284e6d}.timeline-arrow.prev{left:-9px}.timeline-arrow.next{right:-9px}
+.mission-brief{display:grid;grid-template-columns:minmax(0,.83fr) minmax(0,1.17fr);gap:18px;background:linear-gradient(130deg,#18223b,#0f1a32);border:1px solid #55719380;border-radius:22px;padding:26px;margin:20px 0 54px;box-shadow:0 16px 50px #0003}
+.brief-main{padding:14px 12px}.brief-kicker{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.mission-chip{font-size:10px;font-weight:800;color:#10152d;background:var(--yellow);padding:7px 10px;border-radius:20px;letter-spacing:1px}
+.brief-main h2{font-size:clamp(29px,3.4vw,49px);line-height:1.06;letter-spacing:-1.4px;margin:18px 0}.brief-story{padding:20px;background:#0b142b;border:1px solid #38516d;border-radius:18px}.story-quote{border-color:var(--cyan)}.stats{margin-bottom:0}.chapter p{min-height:0}
+.expedition-heading{display:flex;justify-content:space-between;gap:24px;align-items:center;margin:30px 0 23px}.expedition-heading h2{font-size:clamp(29px,3.1vw,45px);margin:10px 0}.expedition-heading p{font-size:17px;color:#bfd2e8}.score-pill{border:1px solid #5ddae4;padding:15px 20px;border-radius:17px;background:#0a3444;min-width:166px;display:flex;flex-direction:column;text-align:center;gap:6px}.score-pill span{font-size:10px;letter-spacing:1px;font-weight:850}.score-pill strong{font-size:30px;color:var(--yellow)}
+.mission-layout{grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr);gap:20px;align-items:stretch}.viewer-panel,.expedition-panel{background:#131c31;border:1px solid #48617e;border-radius:20px;overflow:hidden}.viewer-bar{background:#111a2e;padding:19px}.live-dot{color:#94f2cb}#scene{min-height:465px}.viewer-bottom{flex-wrap:wrap}
+.drive-console{background:#141f36;padding:17px 21px;border-top:1px solid #4b6484}.drive-console-head{display:flex;align-items:center;justify-content:space-between;gap:15px}.drive-console-head strong{font-size:20px}.drive-console-head span{display:block;font-size:13px;color:#bfd5e5;margin-top:5px}.primary{background:#83e1ee;color:#081525;border:0;border-radius:13px;box-shadow:0 7px 0 #007f91;font-weight:900}.primary:hover{background:#aceef5}.primary:active{transform:translateY(3px);box-shadow:0 4px 0 #007f91}.ghost{border-radius:10px}
+.expedition-panel{padding:25px;display:flex;flex-direction:column;gap:17px}.expedition-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.expedition-counter{font-size:12px;border-radius:25px;background:#103a53;color:#a6eeff;padding:9px 12px;font-weight:800}.expedition-panel h3{font-size:clamp(24px,2.3vw,32px);margin:0;line-height:1.17}.mission-stepper{display:flex;align-items:center;justify-content:center;gap:12px;margin:7px 0}.step{display:grid;place-items:center;width:38px;height:38px;border:2px solid #5d779d;border-radius:50%;font-weight:850}.step.current,.step.done{border-color:var(--cyan);background:var(--cyan);color:#07222c}.step-line{flex:1;height:3px;background:#36516e}.objective-banner{display:flex;gap:16px;align-items:flex-start;padding:19px;background:#193750;border:1px solid #76c9e7;border-radius:17px}.objective-icon{font-size:30px;color:var(--yellow)}.objective-label{font-size:12px;color:#9debf0;letter-spacing:1px;font-weight:900;display:block}.objective-banner strong{font-size:20px;display:block;margin-top:5px}.objective-banner p{color:#d1e2ed;font-size:14px;line-height:1.6;margin:10px 0 0}
+.activity-card{padding:21px;background:#10182d;border:1px solid #425e80;border-radius:17px}.activity-heading{display:flex;justify-content:space-between;gap:10px;font-size:11px;letter-spacing:1px;color:#a9eeef;font-weight:900}.activity-heading span:last-child{color:var(--yellow)}.activity-card h4{font-size:23px;line-height:1.2;margin:18px 0 11px}.activity-card p{font-size:16px;line-height:1.6;color:#d9e5f0}.activity-choices{display:grid;gap:10px}.activity-choice{border-radius:12px;border:1px solid #587497;background:#1a2a44;padding:15px;text-align:left;color:white;font-size:15px}.activity-choice:hover{border-color:#8aebf1;background:#213e56}.activity-choice.lab-right{border-color:#4cebb6;background:#164c46}.activity-choice.lab-wrong{border-color:#ff8a9e;background:#5c283d}.activity-feedback{border-radius:12px;padding:14px;background:#213d43;color:#d2ffee;line-height:1.5}.expedition-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.expedition-disclaimer{font-size:12px;color:#93a6bf;line-height:1.5}.sources{border-top:1px solid #2f4969}.sources a:hover{text-decoration:underline}
+@media(max-width:1000px){.mission-layout,.mission-brief{grid-template-columns:1fr}.expedition-heading{align-items:flex-start}.intro{min-height:385px}.orb-one{width:270px;height:270px;opacity:.5}.mission-layout{gap:16px}}
+@media(max-width:650px){.topbar{padding:0 16px}.brand{font-size:11px}.topbar-right{font-size:11px}.explore,.sources{padding-left:18px;padding-right:18px}.intro{padding:55px 21px 60px;min-height:380px}.intro h1{letter-spacing:-1.4px}.section-heading h2{letter-spacing:-1px}.destination-picker{gap:12px}.planet-card,.planet-info{min-height:165px}.planet-info{padding:15px}.planet-info strong{font-size:25px}.planet-label{font-size:9px;letter-spacing:1px}.planet-info small{font-size:11px}.timeline-shell{padding:0 21px}.time-item{flex-basis:245px;min-height:360px;padding-top:205px}.time-item::before{height:196px}.time-item::after{top:140px}.timeline-arrow{width:31px;height:44px}.mission-brief{padding:14px}.brief-story{padding:16px}.expedition-heading{flex-direction:column}.score-pill{align-self:flex-start}.expedition-panel{padding:16px}.viewer-bar{font-size:10px}.drive-console-head{flex-wrap:wrap}.drive-console-head strong{font-size:17px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+/* ================================
+   MEJORAS VISUALES V5.5
+   Más llamativo para niños y jóvenes
+   ================================ */
+
+/* Fondo general más vivo */
+body{
+  background:
+    radial-gradient(circle at 12% 18%, rgba(0,175,185,.18) 0%, transparent 18%),
+    radial-gradient(circle at 86% 12%, rgba(244,96,54,.16) 0%, transparent 22%),
+    radial-gradient(circle at 45% 0%, rgba(175,0,105,.10) 0%, transparent 28%),
+    linear-gradient(180deg,#070b1d 0%, #091433 40%, #080c1d 100%);
+}
+
+/* ================================
+   HERO / PORTADA
+   ================================ */
+.intro{
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 28%, rgba(244,96,54,.24) 0%, transparent 20%),
+    radial-gradient(circle at 15% 18%, rgba(0,175,185,.12) 0%, transparent 16%),
+    linear-gradient(135deg,#081028 0%, #09184a 48%, #081028 100%);
+}
+
+.intro::before{
+  content:'🪐';
+  position:absolute;
+  right:6%;
+  top:10%;
+  font-size:clamp(90px, 14vw, 220px);
+  opacity:.18;
+  pointer-events:none;
+  filter:drop-shadow(0 0 25px rgba(244,96,54,.25));
+}
+
+.intro::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.85;
+  background-image:
+    radial-gradient(#ffffff 1.2px, transparent 1.8px),
+    radial-gradient(#8ce8fa 1px, transparent 1.6px),
+    radial-gradient(#f4d35e 1px, transparent 1.7px);
+  background-size: 140px 120px, 220px 180px, 280px 220px;
+  background-position: 0 0, 60px 40px, 120px 70px;
+}
+
+.intro h1{
+  position:relative;
+  z-index:1;
+  max-width: 900px;
+  line-height: .95;
+  text-shadow: 0 6px 26px rgba(0,0,0,.28);
+}
+
+.intro h1::after{
+  content:'🚀';
+  position:absolute;
+  right:-.25em;
+  top:-.18em;
+  font-size:clamp(28px, 4vw, 56px);
+  transform: rotate(15deg);
+  filter:drop-shadow(0 0 12px rgba(244,96,54,.28));
+}
+
+.intro p{
+  position:relative;
+  z-index:1;
+  max-width:700px;
+  color:#d9ebff;
+  font-size:clamp(16px,1.35vw,21px);
+}
+
+/* ================================
+   TARJETAS DEL CARRUSEL
+   ================================ */
+.timeline-shell{
+  position:relative;
+}
+
+.timeline-shell::before{
+  content:'✦';
+  position:absolute;
+  left:14px;
+  top:-10px;
+  font-size:28px;
+  color:#8ce8fa;
+  opacity:.9;
+  pointer-events:none;
+}
+
+.timeline-shell::after{
+  content:'☄';
+  position:absolute;
+  right:18px;
+  top:-12px;
+  font-size:24px;
+  color:#f7c59f;
+  opacity:.9;
+  pointer-events:none;
+}
+
+.time-item{
+  background:
+    linear-gradient(180deg,#1a2747 0%, #121b34 100%);
+  box-shadow: 0 14px 28px rgba(0,0,0,.45);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.time-item:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px rgba(0,0,0,.55);
+}
+
+.time-item.active{
+  background:
+    linear-gradient(180deg,#21395b 0%, #13243a 100%);
+  border-color: var(--yellow) !important;
+  box-shadow:
+    0 0 0 3px rgba(244,211,94,.20),
+    0 20px 40px rgba(0,0,0,.55),
+    0 0 26px rgba(244,211,94,.16);
+}
+
+.time-item.active .time-name{
+  color:#ffffff;
+}
+
+.time-item.active .time-year{
+  background: linear-gradient(135deg,#ffe788 0%, #f4d35e 100%);
+  color:#1a1632;
+  box-shadow: 0 8px 18px rgba(244,211,94,.30);
+}
+
+.time-type{
+  font-weight:800;
+  color:#eef7ff;
+  background: rgba(255,255,255,.02);
+}
+
+.time-item.active .time-type{
+  background: linear-gradient(135deg,#ffe37c 0%, #f4d35e 100%);
+  color:#1b1733 !important;
+  border:2px solid #ffefad;
+  box-shadow: 0 10px 22px rgba(244,211,94,.35);
+  font-weight:900;
+  text-shadow:none;
+}
+
+/* Flechas del carrusel más visibles */
+.timeline-arrow{
+  background:#16294a;
+  border:2px solid #8ce8fa;
+  color:#f8fbff;
+  box-shadow:0 10px 20px rgba(0,0,0,.45);
+}
+
+.timeline-arrow:hover{
+  background:#234a6a;
+}
+
+/* ================================
+   SECCIÓN DE MISIÓN / SIMULADOR
+   ================================ */
+.mission-layout{
+  position:relative;
+}
+
+.mission-layout::before{
+  content:'';
+  position:absolute;
+  inset:auto 0 -18px 0;
+  height:130px;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 18% 100%, rgba(244,96,54,.18) 0%, transparent 46%),
+    radial-gradient(ellipse at 70% 100%, rgba(247,197,159,.14) 0%, transparent 40%),
+    radial-gradient(ellipse at 90% 100%, rgba(0,175,185,.10) 0%, transparent 34%);
+}
+
+.viewer-panel,
+.expedition-panel{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at top right, rgba(0,175,185,.10) 0%, transparent 24%),
+    radial-gradient(circle at bottom left, rgba(244,96,54,.10) 0%, transparent 22%),
+    linear-gradient(145deg,#15213b 0%, #101a31 60%, #0b1328 100%);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+
+.viewer-panel::before{
+  content:'✦ ✦ ✦';
+  position:absolute;
+  top:12px;
+  right:20px;
+  color:rgba(255,255,255,.5);
+  letter-spacing:8px;
+  font-size:14px;
+  pointer-events:none;
+  z-index:1;
+}
+
+.expedition-panel::before{
+  content:'🪐';
+  position:absolute;
+  top:12px;
+  right:18px;
+  font-size:42px;
+  opacity:.14;
+  pointer-events:none;
+}
+
+/* Barras del simulador */
+.viewer-bar,
+.drive-console{
+  background:
+    linear-gradient(90deg, rgba(14,24,46,.98), rgba(24,43,74,.96));
+}
+
+/* Tarjeta de objetivo */
+.objective-banner{
+  background:
+    linear-gradient(135deg, rgba(0,175,185,.18), rgba(25,55,80,.95));
+  border:1px solid #8de8f1;
+  box-shadow: 0 10px 24px rgba(0,175,185,.10);
+}
+
+/* Caja de actividad */
+.activity-card{
+  background:
+    radial-gradient(circle at 92% 10%, rgba(244,96,54,.10) 0%, transparent 18%),
+    radial-gradient(circle at 8% 90%, rgba(175,0,105,.12) 0%, transparent 22%),
+    linear-gradient(180deg, #0f182d 0%, #10182d 100%);
+}
+
+/* Botones más vivos */
+.primary{
+  background: linear-gradient(135deg,#9eeeff 0%, #76ddea 100%);
+  color:#071524;
+  box-shadow: 0 7px 0 #007f91, 0 12px 20px rgba(0,175,185,.20);
+}
+
+.primary:hover{
+  transform:translateY(-2px);
+  background: linear-gradient(135deg,#b5f3ff 0%, #8de8f1 100%);
+}
+
+.ghost{
+  border:1px solid #6b8db3;
+  background:rgba(255,255,255,.03);
+}
+
+.ghost:hover{
+  background:rgba(255,255,255,.08);
+}
+
+/* Opciones del cuestionario */
+.activity-choice{
+  border:1px solid #6180a4;
+  background: linear-gradient(180deg,#1a2a44 0%, #18253c 100%);
+  color:#fff;
+  box-shadow:0 8px 14px rgba(0,0,0,.18);
+}
+
+.activity-choice:hover{
+  border-color:#8ce8fa;
+  background: linear-gradient(180deg,#203652 0%, #1e304a 100%);
+  transform:translateY(-1px);
+}
+
+.activity-choice.lab-right{
+  border-color:#73f4c2;
+  background:linear-gradient(180deg,#1d5a51 0%, #164941 100%);
+}
+
+.activity-choice.lab-wrong{
+  border-color:#ff9fb1;
+  background:linear-gradient(180deg,#6a2a42 0%, #542136 100%);
+}
+
+/* Encabezados un poco más vivos */
+.section-heading h2,
+.expedition-heading h2,
+.expedition-panel h3,
+.brief-main h2{
+  text-shadow: 0 4px 18px rgba(0,0,0,.25);
+}
+
+.eyebrow,
+.planet-label,
+.activity-heading,
+.objective-label{
+  color:#aef6ff;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .intro h1::after{
+    right:0;
+    top:-.35em;
+  }
+
+  .intro::before{
+    font-size:120px;
+    opacity:.12;
+  }
+}
+/* =========================
+   FONDO GLOBAL ESPACIAL
+========================= */
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(120, 180, 255, 0.16), transparent 18%),
+    radial-gradient(circle at 80% 25%, rgba(255, 200, 120, 0.12), transparent 20%),
+    radial-gradient(circle at 65% 75%, rgba(0, 175, 185, 0.10), transparent 16%),
+    linear-gradient(180deg, #090015 0%, #0b1240 45%, #09122f 100%);
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* capa de estrellas */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.9) 1.4px, transparent 1.6px),
+    radial-gradient(circle, rgba(173,230,255,0.9) 1.2px, transparent 1.4px),
+    radial-gradient(circle, rgba(255,230,180,0.85) 1.3px, transparent 1.5px);
+  background-size: 140px 140px, 220px 220px, 300px 300px;
+  background-position: 0 0, 40px 60px, 100px 30px;
+  opacity: 0.9;
+}
+
+/* brillo suave global */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 70% 20%, rgba(255,255,255,0.08), transparent 22%),
+    radial-gradient(circle at 15% 80%, rgba(0,175,185,0.08), transparent 18%);
+}
+/* =========================
+   SECCIONES MÁS TRANSPARENTES
+========================= */
+
+section,
+.hero,
+.missions,
+.timeline,
+.simulator,
+.control-panel,
+.main-content,
+.content-section {
+  background: transparent !important;
+  position: relative;
+}
+
+/* contenedores principales con efecto vidrio */
+.hero-inner,
+.section-panel,
+.control-card,
+.simulator-card,
+.mission-panel,
+.info-panel,
+.timeline-panel {
+  background: rgba(10, 18, 47, 0.72) !important;
+  border: 1px solid rgba(173, 230, 255, 0.20);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+  border-radius: 24px;
+}
+/* =========================
+   BOTÓN EXPLORAR MISIÓN
+========================= */
+
+.mission-card .mission-btn,
+.mission-card button,
+.mission-card a.button,
+.mission-card .btn {
+  background: #f4d35e !important;
+  color: #09122f !important;
+  font-weight: 800;
+  border: 2px solid #f7c59f !important;
+  box-shadow: 0 6px 20px rgba(244, 211, 94, 0.35);
+}
+
+.mission-card .mission-btn:hover,
+.mission-card button:hover,
+.mission-card a.button:hover,
+.mission-card .btn:hover {
+  background: #ffd95f !important;
+  color: #090015 !important;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.mission-card.selected .mission-btn,
+.mission-card.active .mission-btn,
+.mission-card.selected button,
+.mission-card.active button {
+  background: #00afb9 !important;
+  color: white !important;
+  border-color: #aee6ff !important;
+  box-shadow: 0 0 0 4px rgba(0, 175, 185, 0.18);
+}
+/* =========================
+   DECORACIONES ESPACIALES
+========================= */
+
+.space-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.space-decor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+  user-select: none;
+}
+
+.space-decor.rocket {
+  font-size: 46px;
+  filter: drop-shadow(0 10px 14px rgba(0,0,0,0.25));
+  animation: floatRocket 5s ease-in-out infinite;
+}
+
+.space-decor.star {
+  font-size: 26px;
+  color: #aee6ff;
+  animation: twinkle 2.2s ease-in-out infinite alternate;
+}
+
+.space-decor.planet {
+  border-radius: 50%;
+  filter: blur(0.2px);
+  box-shadow: inset -12px -18px 22px rgba(0,0,0,0.18);
+}
+
+.space-decor.planet.orange {
+  background: radial-gradient(circle at 30% 30%, #f7c59f, #f46036 72%, #af0069 100%);
+}
+
+.space-decor.planet.blue {
+  background: radial-gradient(circle at 35% 30%, #aee6ff, #00afb9 70%, #004e89 100%);
+}
+
+.space-decor.planet.yellow {
+  background: radial-gradient(circle at 35% 30%, #fff1a8, #f4d35e 70%, #f7c59f 100%);
+}
+
+.space-decor.ring::after {
+  content: "";
+  position: absolute;
+  left: -12%;
+  top: 40%;
+  width: 124%;
+  height: 24%;
+  border: 3px solid rgba(255,255,255,0.55);
+  border-radius: 50%;
+  transform: rotate(-18deg);
+}
+
+.space-decor.satellite {
+  font-size: 42px;
+  animation: floatRocket 6s ease-in-out infinite;
+}
+
+@keyframes floatRocket {
+  0% { transform: translateY(0px) rotate(-8deg); }
+  50% { transform: translateY(-10px) rotate(-3deg); }
+  100% { transform: translateY(0px) rotate(-8deg); }
+}
+
+@keyframes twinkle {
+  from { opacity: 0.35; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1.12); }
+}
+
+/* =====================================
+   FONDO ESPACIAL CONTINUO V5.7
+   ===================================== */
+
+/* Un único fondo para toda la página */
+html {
+  background: #080e25;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #080e25 !important;
+  background-image:
+    radial-gradient(circle, #ffffff 1.4px, transparent 2px),
+    radial-gradient(circle, #9eeeff 1.2px, transparent 2px),
+    radial-gradient(circle, #f4d35e 1.3px, transparent 2px),
+    radial-gradient(ellipse at 15% 30%, #142b50 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 65%, #1d1949 0%, transparent 50%),
+    linear-gradient(180deg, #080e25 0%, #101734 50%, #080e25 100%) !important;
+
+  background-size:
+    190px 190px,
+    270px 270px,
+    340px 340px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+
+  background-position:
+    0 0,
+    60px 100px,
+    130px 40px,
+    center,
+    center,
+    center;
+
+  background-attachment: fixed !important;
+}
+
+/* Quitar capas globales anteriores */
+body::before,
+body::after {
+  content: none !important;
+}
+
+/* Eliminar cortes de fondo entre secciones */
+main,
+.intro,
+.explore,
+.sources,
+.content-section {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Evitar una segunda capa de estrellas
+   exclusiva de la portada */
+.intro::after {
+  content: none !important;
+}
+
+/* Conservar el diseño de las tarjetas */
+.planet-card,
+.time-item,
+.mission-brief,
+.viewer-panel,
+.expedition-panel,
+.activity-card,
+.objective-banner {
+  backdrop-filter: blur(8px);
+}
+
+/* Hacer más suave el paso entre secciones */
+.intro {
+  border-bottom: none !important;
+}
+
+.explore {
+  border-top: none !important;
+}
+
+/* Mantener las ilustraciones decorativas */
+.space-decor {
+  pointer-events: none;
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .space-decor {
+    animation: none !important;
+  }
+}
+
+/* ==========================================
+   V5.7 - CIELO ESTRELLADO MÁS VISIBLE
+   ========================================== */
+
+/* Un solo fondo continuo */
+html {
+  background: #080e25;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    135deg,
+    #080e25 0%,
+    #111a3b 50%,
+    #090f2b 100%
+  ) !important;
+}
+
+/* Estrellas pequeñas y medianas */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle, #ffffff 1.5px, transparent 2.4px),
+    radial-gradient(circle, #a5edff 1.2px, transparent 2px),
+    radial-gradient(circle, #ffe8a4 1.3px, transparent 2.1px),
+    radial-gradient(circle, #ffffff 0.8px, transparent 1.5px);
+
+  background-size:
+    137px 179px,
+    211px 163px,
+    293px 227px,
+    83px 107px;
+
+  background-position:
+    12px 17px,
+    84px 63px,
+    159px 108px,
+    41px 76px;
+
+  opacity: 0.95;
+}
+
+/* Brillos de nebulosas, sin ocultar estrellas */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 25%,
+      rgba(0,175,185,.10),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 85% 70%,
+      rgba(175,0,105,.09),
+      transparent 38%
+    );
+}
+
+/* Las secciones dejan ver el mismo cielo */
+main,
+.intro,
+.explore,
+.sources,
+.content-section {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Quitar las estrellas independientes de la portada */
+.intro::after {
+  content: none !important;
+}
+
+/* ==========================================
+   V5.8 - ESTRELLAS EN TODA LA PÁGINA
+   ========================================== */
+
+/* Fondo espacial único */
+html {
+  min-height: 100%;
+  background: #080e25;
+}
+
+body {
+  position: relative;
+  isolation: auto !important;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 25%,
+      rgba(30, 61, 108, .35), transparent 55%),
+    radial-gradient(ellipse at 80% 70%,
+      rgba(75, 36, 109, .22), transparent 55%),
+    #080e25 !important;
+}
+
+/* Estrellas que cubren toda la ventana */
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+
+  background-image:
+    radial-gradient(circle, #fff 1.5px, transparent 2px),
+    radial-gradient(circle, #a8edff 1.2px, transparent 2px),
+    radial-gradient(circle, #ffe69a 1.3px, transparent 2px),
+    radial-gradient(circle, #fff 0.7px, transparent 1.3px);
+
+  background-size:
+    137px 179px,
+    211px 163px,
+    293px 227px,
+    83px 107px;
+
+  background-position:
+    12px 17px,
+    84px 63px,
+    159px 108px,
+    41px 76px;
+
+  opacity: .8 !important;
+}
+
+/* Quitar capas anteriores que interfieren */
+body::after {
+  content: none !important;
+}
+
+/* Todas las secciones con el mismo cielo */
+main,
+.intro,
+.explore,
+.sources,
+.content-section {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Las tarjetas mantienen su propio fondo */
+.planet-card,
+.time-item,
+.mission-brief,
+.viewer-panel,
+.expedition-panel,
+.activity-card {
+  position: relative;
+  z-index: 2;
+}
+
+/* Encabezado y contenido sobre las estrellas */
+.topbar,
+main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Eliminar estrellas exclusivas de portada */
+.intro::after {
+  content: none !important;
+}
+
+/* =========================================
+   V5.9 - INSTRUCCIONES DEL EXPLORADOR
+   ========================================= */
+
+.drive-console {
+  position: relative;
+  overflow: hidden;
+  padding: 24px !important;
+  background:
+    radial-gradient(circle at 95% 0%,
+      rgba(0,175,185,.22), transparent 35%),
+    linear-gradient(135deg,
+      #213957 0%, #172640 100%) !important;
+  border-top: 3px solid #00afb9 !important;
+}
+
+/* Estrellas decorativas */
+.drive-console::before {
+  content: "✦";
+  position: absolute;
+  right: 32%;
+  top: 12px;
+  color: #f4d35e;
+  font-size: 23px;
+  pointer-events: none;
+}
+
+.drive-console-head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.drive-console-head > div {
+  position: relative;
+  flex: 1 1 270px;
+  min-width: 0;
+  padding-left: 73px;
+}
+
+/* Ícono grande de controles */
+.drive-console-head > div::before {
+  content: "🎮";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 17px;
+  background: #305473;
+  border: 1px solid #8ee9f3;
+  font-size: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.18);
+}
+
+/* Título principal */
+#drive-title {
+  display: block;
+  font-size: clamp(21px, 2vw, 29px) !important;
+  font-weight: 900 !important;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* Instrucciones */
+#drive-status {
+  display: block;
+  margin-top: 9px;
+  font-size: 16px !important;
+  line-height: 1.55;
+  color: #c9ecfa !important;
+  font-weight: 500;
+}
+
+/* Botón principal */
+#drive-mode {
+  background: linear-gradient(
+    135deg, #91f1f1, #00afb9
+  ) !important;
+  color: #081728 !important;
+  border: 2px solid #b1f5ff !important;
+  padding: 15px 23px !important;
+  border-radius: 16px !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  box-shadow:
+    0 6px 0 #08677a,
+    0 12px 24px rgba(0,175,185,.22) !important;
+}
+
+#drive-mode:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* Instrucciones secundarias bajo el visor */
+.viewer-bottom {
+  background:
+    linear-gradient(90deg,
+      rgba(23,41,70,.98),
+      rgba(35,56,83,.96)) !important;
+  border-top: 1px solid #527a9c;
+  padding: 17px 21px;
+  gap: 12px;
+}
+
+.viewer-bottom > span {
+  flex: 1 1 260px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px !important;
+  line-height: 1.6;
+  color: #d9efff !important;
+}
+
+.viewer-bottom > span::before {
+  content: "💡";
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  background: rgba(244,211,94,.14);
+  border: 1px solid rgba(244,211,94,.45);
+  border-radius: 12px;
+  font-size: 21px;
+}
+
+/* Controles expandidos */
+.drive-console-body {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(169,237,255,.24);
+}
+
+/* Adaptación a celulares */
+@media(max-width:650px) {
+  .drive-console {
+    padding: 17px !important;
+  }
+
+  .drive-console-head > div {
+    padding-left: 61px;
+  }
+
+  .drive-console-head > div::before {
+    width: 49px;
+    height: 49px;
+    font-size: 25px;
+  }
+
+  #drive-mode {
+    width: 100%;
+  }
+}

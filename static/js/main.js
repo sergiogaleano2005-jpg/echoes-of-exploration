@@ -266,12 +266,49 @@ const blue=mat(0x1c4c8b,.26,.36),white=mat(0xd8d9d4,.34,.48),copper=mat(0x8b6550
 function mesh(geo,m,x,y,z,parent=modelGroup){const o=new THREE.Mesh(geo,m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o;}
 function box(w,h,d,x,y,z,m=white,parent=modelGroup){return mesh(new THREE.BoxGeometry(w,h,d),m,x,y,z,parent);}
 function rod(a,b,r,m=silver,parent=modelGroup){const va=new THREE.Vector3(...a),vb=new THREE.Vector3(...b),v=vb.clone().sub(va);const o=mesh(new THREE.CylinderGeometry(r,r,v.length(),10),m,0,0,0,parent);o.position.copy(va.add(vb).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),v.normalize());return o;}
-function wheel(x,z,y=.39,r=.29){const tire=mesh(new THREE.CylinderGeometry(r,r,.19,24),dark,x,y,z);tire.rotation.x=Math.PI/2;wheelParts.push(tire);
-  for(let i=0;i<12;i++){const a=i*Math.PI/6;const grip=box(.12,.04,.205,x+Math.cos(a)*r,y+Math.sin(a)*r,z,dark);grip.rotation.z=a;}
-  const hub=mesh(new THREE.CylinderGeometry(r*.44,r*.44,.21,20),silver,x,y,z);hub.rotation.x=Math.PI/2;wheelParts.push(hub);
-  const hubCenter=mesh(new THREE.CylinderGeometry(r*.18,r*.18,.225,16),copper,x,y,z);hubCenter.rotation.x=Math.PI/2;wheelParts.push(hubCenter);
-  rod([x,y,z],[x*.65,.94,z*.60],.037,silver);
+
+function wheel(x, z, y = .39, r = .29) {
+  const wheelGroup = new THREE.Group();
+  wheelGroup.position.set(x, y, z);
+  modelGroup.add(wheelGroup);
+
+  const tire = mesh(
+    new THREE.CylinderGeometry(r, r, .19, 24),
+    dark, 0, 0, 0, wheelGroup
+  );
+  tire.rotation.x = Math.PI / 2;
+
+  for (let i = 0; i < 12; i++) {
+    const a = i * Math.PI / 6;
+    const grip = box(
+      .12, .04, .205,
+      Math.cos(a) * r,
+      Math.sin(a) * r,
+      0, dark, wheelGroup
+    );
+    grip.rotation.z = a;
+  }
+
+  const hub = mesh(
+    new THREE.CylinderGeometry(r * .44, r * .44, .21, 20),
+    silver, 0, 0, 0, wheelGroup
+  );
+  hub.rotation.x = Math.PI / 2;
+
+  const hubCenter = mesh(
+    new THREE.CylinderGeometry(r * .18, r * .18, .225, 16),
+    copper, 0, 0, 0, wheelGroup
+  );
+  hubCenter.rotation.x = Math.PI / 2;
+
+  rod([x, y, z], [x * .65, .94, z * .60], .037, silver);
+
+  wheelParts.push({
+    pivot: wheelGroup,
+    radius: r
+  });
 }
+
 function solarCellGrid(cx,cy,cz,w,d){box(w,.045,d,cx,cy,cz,blue);const lines=mat(0xa5a8b2,.45,.45);
  for(let i=-2;i<=2;i++)box(.012,.049,d,cx+i*w/6,cy+.026,cz,lines);
  for(let j=-1;j<=1;j++)box(w,.05,.01,cx,cy+.028,cz+j*d/4,lines);
@@ -617,7 +654,13 @@ function updateMovement(dt){
   const nx=driving.x+Math.cos(driving.yaw)*ds;
   const nz=driving.z-Math.sin(driving.yaw)*ds;
   if(Math.abs(nx)<14&&Math.abs(nz)<14){driving.x=nx;driving.z=nz;driving.distance+=Math.abs(ds);
-    if(kind==='ground')for(const wheel of wheelParts)wheel.rotation.z-=ds/.29;
+
+if (kind === 'ground') {
+  for (const wheel of wheelParts) {
+    wheel.pivot.rotation.z -= ds / wheel.radius;
+  }
+}
+
   } else setDriveStatus('Límite de la zona de exploración: cambia de dirección.');
  }
  const lunar=missions[selected].place==='LUNA';
