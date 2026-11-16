@@ -5,40 +5,40 @@ const $=id=>document.getElementById(id);
 
 const missions = [
   {
-    id:'apollo',year:'1972',name:'Apollo 17',place:'LUNA',title:'Lunar Roving Vehicle',subtitle:'El vehículo que amplió la exploración lunar',
-    quote:'«Transporté exploradores humanos por un mundo donde antes solo habían llegado unos pocos pasos».',
-    stats:[['1972','AÑO DE MISIÓN'],['Luna','DESTINO']],
+    id:'apollo',year:'1972',name:'Apollo 17',place:'LUNA',title:'Lunar Roving Vehicle',subtitle:'The vehicle that expanded lunar exploration',
+    quote:'“I carried human explorers across a world where only a few footsteps had reached before.”',
+    stats:[['1972','MISSION YEAR'],['Moon','DESTINATION']],
     chapters:[
-      ['Un vehículo para otro mundo','Apollo 17 fue la última misión tripulada del programa Apollo que aterrizó en la Luna. Sus astronautas utilizaron un vehículo lunar eléctrico para desplazarse por la superficie y estudiar distintos lugares.'],
-      ['Exploración geológica','El vehículo permitió transportar herramientas, cámaras y muestras, ampliando el alcance de la exploración humana y ayudando a estudiar la historia geológica de la Luna.'],
-      ['Lo que quedó atrás','El Lunar Roving Vehicle permanece en la superficie lunar. Aunque ya no se utiliza, es un testimonio físico de la exploración tripulada y sus avances científicos.']
+      ['A vehicle for another world','Apollo 17 was the last crewed Apollo mission to land on the Moon. Its astronauts used an electric lunar rover to travel across the surface and study different sites.'],
+      ['Geological exploration','The rover carried tools, cameras, and samples, extending the reach of human exploration and helping scientists study the Moon’s geological history.'],
+      ['What was left behind','The Lunar Roving Vehicle remains on the Moon. Although it is no longer in use, it is a physical reminder of crewed exploration and scientific progress.']
     ],
-    quiz:{question:'¿Para qué ayudaba principalmente el vehículo lunar de Apollo 17?',answers:['Para transportar astronautas y material científico','Para viajar desde la Luna hasta Marte','Para producir oxígeno en la Luna'],correct:0,explain:'El rover aumentó la distancia que podían recorrer los astronautas y facilitó la recolección de muestras.'},
+    quiz:{question:'What was the main purpose of the Apollo 17 lunar rover?',answers:['To transport astronauts and scientific equipment','To travel from the Moon to Mars','To produce oxygen on the Moon'],correct:0,explain:'The rover let astronauts travel farther and made collecting samples easier.'},
     source:[['NASA — Apollo 17','https://www.nasa.gov/mission/apollo-17/'],['NASA — Apollo Lunar Roving Vehicle','https://www.nasa.gov/history/alsj/alsj-LRV.html']]
   },
   {
-    id:'spirit',year:'2004',name:'Spirit',place:'MARTE',title:'Spirit Rover',subtitle:'El explorador que superó sus límites',
-    quote:'«Mi viaje se detuvo, pero los descubrimientos que ayudé a realizar continuaron su camino».',
-    stats:[['2004','ATERRIZAJE'],['2010','ÚLTIMA SEÑAL']],
+    id:'spirit',year:'2004',name:'Spirit',place:'MARTE',title:'Spirit Rover',subtitle:'The explorer that exceeded expectations',
+    quote:'“My journey ended, but the discoveries I helped make lived on.”',
+    stats:[['2004','LANDING'],['2010','LAST SIGNAL']],
     chapters:[
-      ['Bienvenido a Marte','Spirit aterrizó en Marte en enero de 2004 junto con su rover gemelo Opportunity, con el objetivo de investigar la geología marciana y buscar señales de actividad antigua del agua.'],
-      ['Huella científica','Spirit halló evidencias de ambientes marcianos antiguos relacionados con agua, aportando información fundamental a la historia geológica del planeta.'],
-      ['El último capítulo','El rover quedó atrapado en suelo blando en 2009. Continuó realizando observaciones, pero dejó de comunicarse en 2010; NASA terminó los intentos de contacto en 2011.']
+      ['Welcome to Mars','Spirit landed on Mars in January 2004 along with its twin rover Opportunity to study Martian geology and look for signs of ancient water activity.'],
+      ['Scientific discoveries','Spirit found evidence of ancient Martian environments shaped by water, providing important clues about the planet’s geological history.'],
+      ['The final chapter','The rover became stuck in soft soil in 2009. It continued observing its surroundings but stopped communicating in 2010; NASA ended contact attempts in 2011.']
     ],
-    quiz:{question:'¿Qué buscaban investigar Spirit y Opportunity?',answers:['El origen de las estrellas','La geología y las evidencias de agua antigua en Marte','Las nubes de Venus'],correct:1,explain:'Ambos rovers estudiaron rocas y suelos para reconstruir ambientes antiguos de Marte.'},
+    quiz:{question:'What were Spirit and Opportunity sent to investigate?',answers:['The origin of stars','Geology and evidence of ancient water on Mars','The clouds of Venus'],correct:1,explain:'Both rovers studied rocks and soil to understand ancient Martian environments.'},
     source:[['NASA Science — Spirit','https://science.nasa.gov/mission/spirit/']]
   },
   {
-    id:'opportunity',year:'2004–2019',name:'Opportunity',place:'MARTE',title:'Opportunity Rover',subtitle:'90 soles planeados. Casi 15 años de exploración.',
-    quote:'«Fui diseñado para durar 90 días marcianos; mi historia se extendió durante casi quince años».',
-    stats:[['2004','ATERRIZAJE'],['90 soles','PLAN ORIGINAL'],['2019','FIN DE MISIÓN']],
+    id:'opportunity',year:'2004–2019',name:'Opportunity',place:'MARTE',title:'Opportunity Rover',subtitle:'Planned for 90 sols. Nearly 15 years of exploration.',
+    quote:'“I was designed to last 90 Martian days; my story continued for almost fifteen years.”',
+    stats:[['2004','LANDING'],['90 sols','ORIGINAL PLAN'],['2019','MISSION END']],
     chapters:[
-      ['Un comienzo inesperado','Opportunity llegó a Marte en enero de 2004. Su misión estaba diseñada para operar durante 90 soles, pero el rover siguió recorriendo la superficie marciana durante casi 15 años.'],
-      ['Un planeta con historia','Al estudiar rocas, capas sedimentarias y minerales, Opportunity aportó evidencias de que Marte tuvo agua líquida en el pasado y ayudó a describir sus antiguos ambientes.'],
-      ['El silencio de Marte','En junio de 2018, una gran tormenta de polvo redujo la luz solar disponible para sus paneles. Se perdió la comunicación y NASA declaró finalizada la misión en febrero de 2019.'],
-      ['Un legado que permanece','El rover sigue en Marte. Sus observaciones ayudan a los investigadores a comprender la historia del planeta y muestran el impacto que una misión robótica puede tener mucho después de su último contacto.']
+      ['An unexpected beginning','Opportunity arrived on Mars in January 2004. The mission was designed to last 90 sols, but the rover continued exploring the Martian surface for almost 15 years.'],
+      ['A planet with a past','By studying rocks, sedimentary layers, and minerals, Opportunity found evidence of liquid water on ancient Mars and helped reveal its past environments.'],
+      ['Silence on Mars','In June 2018, a major dust storm reduced sunlight reaching its solar panels. Contact was lost, and NASA declared the mission complete in February 2019.'],
+      ['An enduring legacy','The rover remains on Mars. Its observations continue to help researchers understand the planet’s history and show how a robotic mission can matter long after its last signal.']
     ],
-    quiz:{question:'¿Qué factor contribuyó a que Opportunity dejara de comunicarse en 2018?',answers:['Una tormenta de polvo que redujo la luz solar','Una erupción volcánica en el lugar del rover','Una falla en el lanzamiento desde la Tierra'],correct:0,explain:'Opportunity utilizaba paneles solares y una tormenta global de polvo redujo la energía disponible. NASA concluyó la misión en 2019.'},
+    quiz:{question:'What contributed to Opportunity losing contact in 2018?',answers:['A dust storm that blocked sunlight','A volcanic eruption near the rover','A launch failure on Earth'],correct:0,explain:'Opportunity relied on solar panels, and a global dust storm cut its power supply. NASA ended the mission in 2019.'},
     source:[['NASA Science — Opportunity','https://science.nasa.gov/mission/opportunity/'],['NASA JPL — Opportunity Mission Complete','https://www.jpl.nasa.gov/news/nasas-opportunity-rover-mission-on-mars-comes-to-end/']]
   }
 ];
@@ -46,27 +46,27 @@ const missions = [
 
 // Historias de cinco misiones añadidas; en V5 todas tienen modelos educativos aproximados.
 const archiveMissions = [
- {id:'surveyor3',year:'1967',name:'Surveyor 3',place:'LUNA',archive:false,title:'Surveyor 3 · Aterrizador lunar',subtitle:'El robot que probó cómo era la superficie lunar',
- quote:'«Antes de caminar sobre la Luna, necesitábamos saber si el suelo podría sostenernos».',
- stats:[['1967','ATERRIZAJE'],['1969','VISITADO POR APOLO 12']],
- chapters:[['Primer contacto con el suelo','Surveyor 3 aterrizó en la Luna el 20 de abril de 1967. Su cámara y su dispositivo de muestreo permitieron investigar la superficie lunar antes de los alunizajes tripulados.'],['Un experimento con legado','Las pruebas de la superficie contribuyeron a estudiar la consistencia del suelo lunar. Los astronautas de Apollo 12 visitaron después el lugar y recuperaron componentes del módulo.']],
- quiz:{question:'¿Qué estudió Surveyor 3 directamente en la Luna?',answers:['El suelo lunar','La atmósfera de Júpiter','Los océanos terrestres'],correct:0,explain:'Surveyor 3 contó con un muestreador de superficie para examinar el suelo lunar.'},source:[['NASA Science — Surveyor 3','https://science.nasa.gov/mission/surveyor-3/']]},
- {id:'apollo11',year:'1969',name:'Apollo 11 · Eagle',place:'LUNA',archive:false,title:'Eagle · Etapa de descenso',subtitle:'La estructura que permaneció en la Luna',
- quote:'«Cuando los astronautas partieron, una parte de su vehículo siguió aquí».',stats:[['1969','ALUNIZAJE'],['20 JUL','PRIMERA LLEGADA TRIPULADA']],
- chapters:[['Un aterrizaje histórico','Apollo 11 alunizó en el Mar de la Tranquilidad el 20 de julio de 1969. El módulo lunar Eagle transportó a Armstrong y Aldrin hasta la superficie.'],['Lo que permanece','La etapa de descenso del módulo Eagle quedó sobre la Luna cuando su etapa de ascenso despegó para reunirse con el módulo de mando.']],
- quiz:{question:'¿Qué parte del módulo lunar Eagle quedó sobre la Luna?',answers:['La etapa de descenso','El módulo de mando Columbia','Todo el cohete Saturn V'],correct:0,explain:'La etapa inferior sirvió como plataforma de lanzamiento de la etapa de ascenso.'},source:[['NASA — Apollo 11 Mission Overview','https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11ov.html']]},
- {id:'viking1',year:'1976',name:'Viking 1',place:'MARTE',archive:false,title:'Viking 1 · Aterrizador',subtitle:'Imágenes y experimentos desde Marte',
- quote:'«Fui uno de los primeros laboratorios de NASA en trabajar directamente sobre Marte».',stats:[['1976','ATERRIZAJE'],['1982','FIN DEL ATERRIZADOR']],
- chapters:[['La llegada','Viking 1 aterrizó en Chryse Planitia el 20 de julio de 1976 y transmitió imágenes de la superficie marciana.'],['Un laboratorio remoto','El módulo llevó experimentos para estudiar el ambiente y buscar señales de procesos biológicos. Sus resultados dieron forma a futuras investigaciones sobre Marte.']],
- quiz:{question:'¿Qué tipo de vehículo era Viking 1 en la superficie?',answers:['Un aterrizador estacionario','Un helicóptero','Un rover de seis ruedas'],correct:0,explain:'Viking 1 contaba con un aterrizador fijo y un orbitador.'},source:[['NASA Science — Viking Project','https://science.nasa.gov/mission/viking/']]},
- {id:'sojourner',year:'1997',name:'Sojourner',place:'MARTE',archive:false,title:'Sojourner · Primer rover de NASA en Marte',subtitle:'Pequeño vehículo, gran paso tecnológico',
- quote:'«Mi pequeño recorrido abrió el camino para vehículos cada vez más capaces».',stats:[['1997','ATERRIZAJE'],['83 DÍAS','OPERACIÓN EN MARTE']],
- chapters:[['Una nueva forma de explorar','Sojourner llegó junto a Mars Pathfinder el 4 de julio de 1997. Demostró que un vehículo robótico podía desplazarse y estudiar el entorno de Marte.'],['Estudiar rocas','El rover utilizó un espectrómetro para investigar la composición de rocas y suelos, mientras el aterrizador aportaba imágenes y comunicaciones.']],
- quiz:{question:'¿Qué misión llevó a Sojourner a Marte?',answers:['Mars Pathfinder','Apollo 11','Viking 1'],correct:0,explain:'Sojourner fue parte de la misión Mars Pathfinder de 1997.'},source:[['NASA Science — Mars Pathfinder','https://science.nasa.gov/mission/mars-pathfinder/']]},
- {id:'ingenuity',year:'2021–2024',name:'Ingenuity',place:'MARTE',archive:false,title:'Ingenuity · Helicóptero marciano',subtitle:'El primer vuelo motorizado en otro planeta',
- quote:'«Despegué sobre Marte y demostré que una nueva forma de explorar era posible».',stats:[['2021','PRIMER VUELO'],['72','VUELOS'],['2024','ÚLTIMO VUELO']],
- chapters:[['Un despegue sin precedentes','Ingenuity llegó a Marte junto a Perseverance y realizó su primer vuelo el 19 de abril de 2021. Fue el primer vuelo motorizado y controlado en otro planeta.'],['Más allá de la demostración','Diseñado para realizar hasta cinco vuelos de prueba, completó 72. Su último vuelo ocurrió en enero de 2024 y ayudó a demostrar la utilidad de los vehículos aéreos para explorar otros mundos.']],
- quiz:{question:'¿Cuántos vuelos completó Ingenuity?',answers:['5','72','150'],correct:1,explain:'NASA confirmó 72 vuelos durante su misión en Marte.'},source:[['NASA Science — Ingenuity','https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/']]}
+ {id:'surveyor3',year:'1967',name:'Surveyor 3',place:'LUNA',archive:false,title:'Surveyor 3 · Lunar lander',subtitle:'The robot that tested the lunar surface',
+ quote:'“Before walking on the Moon, we needed to know whether the ground could support us.”',
+ stats:[['1967','LANDING'],['1969','VISITED BY APOLLO 12']],
+ chapters:[['First contact with the ground','Surveyor 3 landed on the Moon on April 20, 1967. Its camera and sampling device helped scientists study the lunar surface before crewed landings.'],['An experiment with a legacy','Surface tests helped scientists understand the lunar soil. Apollo 12 astronauts later visited the site and retrieved parts of the lander.']],
+ quiz:{question:'What did Surveyor 3 study directly on the Moon?',answers:['Lunar soil','Jupiter’s atmosphere','Earth’s oceans'],correct:0,explain:'Surveyor 3 used a surface sampler to examine lunar soil.'},source:[['NASA Science — Surveyor 3','https://science.nasa.gov/mission/surveyor-3/']]},
+ {id:'apollo11',year:'1969',name:'Apollo 11 · Eagle',place:'LUNA',archive:false,title:'Eagle · Descent stage',subtitle:'The spacecraft section left on the Moon',
+ quote:'“When the astronauts departed, part of their spacecraft stayed here.”',stats:[['1969','MOON LANDING'],['JUL 20','FIRST CREWED LANDING']],
+ chapters:[['A historic landing','Apollo 11 landed in the Sea of Tranquility on July 20, 1969. The Eagle lunar module carried Armstrong and Aldrin to the surface.'],['What remains','Eagle’s descent stage remained on the Moon when the ascent stage lifted off to rejoin the command module.']],
+ quiz:{question:'Which part of the Eagle lunar module stayed on the Moon?',answers:['The descent stage','The Columbia command module','The entire Saturn V rocket'],correct:0,explain:'The lower stage served as the launch platform for the ascent stage.'},source:[['NASA — Apollo 11 Mission Overview','https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11ov.html']]},
+ {id:'viking1',year:'1976',name:'Viking 1',place:'MARTE',archive:false,title:'Viking 1 · Lander',subtitle:'Images and experiments from Mars',
+ quote:'“I was among NASA’s first laboratories to work directly on Mars.”',stats:[['1976','LANDING'],['1982','LANDER MISSION END']],
+ chapters:[['Arrival on Mars','Viking 1 landed in Chryse Planitia on July 20, 1976, and transmitted images of the Martian surface.'],['A remote laboratory','The lander carried experiments to study the environment and search for signs of biological processes. Its findings helped shape future Mars research.']],
+ quiz:{question:'What kind of vehicle was Viking 1 on the surface?',answers:['A stationary lander','A helicopter','A six-wheeled rover'],correct:0,explain:'Viking 1 included a stationary lander and an orbiter.'},source:[['NASA Science — Viking Project','https://science.nasa.gov/mission/viking/']]},
+ {id:'sojourner',year:'1997',name:'Sojourner',place:'MARTE',archive:false,title:'Sojourner · NASA’s first Mars rover',subtitle:'Small rover, giant technological leap',
+ quote:'“My short journey paved the way for ever more capable vehicles.”',stats:[['1997','LANDING'],['83 DAYS','MARS OPERATIONS']],
+ chapters:[['A new way to explore','Sojourner arrived with Mars Pathfinder on July 4, 1997. It showed that a robotic rover could move around and study its surroundings on Mars.'],['Studying rocks','The rover used a spectrometer to investigate the composition of rocks and soil, while the lander provided images and communications.']],
+ quiz:{question:'Which mission brought Sojourner to Mars?',answers:['Mars Pathfinder','Apollo 11','Viking 1'],correct:0,explain:'Sojourner was part of the 1997 Mars Pathfinder mission.'},source:[['NASA Science — Mars Pathfinder','https://science.nasa.gov/mission/mars-pathfinder/']]},
+ {id:'ingenuity',year:'2021–2024',name:'Ingenuity',place:'MARTE',archive:false,title:'Ingenuity · Mars helicopter',subtitle:'The first powered flight on another planet',
+ quote:'“I lifted off above Mars and showed that a new way of exploring was possible.”',stats:[['2021','FIRST FLIGHT'],['72','FLIGHTS'],['2024','LAST FLIGHT']],
+ chapters:[['An unprecedented takeoff','Ingenuity arrived on Mars with Perseverance and made its first flight on April 19, 2021. It was the first powered, controlled flight on another planet.'],['Beyond the demonstration','Designed for up to five test flights, Ingenuity completed 72. Its last flight was in January 2024, demonstrating the value of aerial vehicles for exploring other worlds.']],
+ quiz:{question:'How many flights did Ingenuity complete?',answers:['5','72','150'],correct:1,explain:'NASA confirmed 72 flights during its Mars mission.'},source:[['NASA Science — Ingenuity','https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/']]}
 ];
 missions.push(...archiveMissions);
 missions.sort((a,b)=>parseInt(a.year)-parseInt(b.year));
@@ -74,37 +74,37 @@ missions.sort((a,b)=>parseInt(a.year)-parseInt(b.year));
 
 // V5.1: situaciones educativas hipotéticas. No reproducen decisiones operativas de NASA.
 const decisions = {
-  surveyor3: {title:'Estudia la resistencia del suelo lunar',role:'Ingeniería de superficie',steps:[
-    {q:'Surveyor 3 necesita conocer la consistencia del suelo. ¿Qué instrumento sería útil?',opts:['El muestreador de superficie','Una antena de televisión terrestre','Un propulsor de ascenso'],correct:0,why:'Su muestreador pudo excavar y manipular el material de la superficie lunar; ayudó a estudiar sus propiedades.'},
-    {q:'Después de examinar el terreno, ¿qué evidencia documentarías?',opts:['Imágenes y respuesta del suelo al muestreador','Solo el color de una bandera','La temperatura del océano terrestre'],correct:0,why:'Las imágenes junto con la interacción mecánica ayudaban a comprender mejor el suelo. Esta elección es una simulación educativa.'}
+  surveyor3: {title:'Study the strength of lunar soil',role:'Surface engineering',steps:[
+    {q:'Surveyor 3 needs to test the soil. Which instrument would be useful?',opts:['The surface sampler','An Earth television antenna','An ascent thruster'],correct:0,why:'Its sampler could dig into and move lunar material, helping scientists study its properties.'},
+    {q:'After examining the terrain, what evidence would you record?',opts:['Images and how the soil responds to the sampler','Only the color of a flag','The temperature of Earth’s ocean'],correct:0,why:'Images and mechanical tests helped scientists better understand the soil. This choice is part of an educational simulation.'}
   ]},
-  apollo11: {title:'Comprende cómo Eagle dejó parte de sí en la Luna',role:'Ingeniería lunar',steps:[
-    {q:'Los astronautas deben despegar de la Luna. ¿Qué parte permanece como plataforma?',opts:['La etapa de descenso','El módulo de mando en órbita','El cohete Saturn V entero'],correct:0,why:'La etapa de ascenso salió desde la etapa de descenso, que permanece en la superficie.'},
-    {q:'¿Qué conviene identificar en una reconstrucción de lo que quedó?',opts:['Patas y estructura de la etapa de descenso','La cápsula de retorno terrestre','El satélite Hubble'],correct:0,why:'La estructura inferior con sus patas quedó en la Luna. El modelo 3D es una representación simplificada.'}
+  apollo11: {title:'Discover what Eagle left on the Moon',role:'Lunar engineering',steps:[
+    {q:'The astronauts must leave the Moon. Which part stays behind as a launch platform?',opts:['The descent stage','The command module in orbit','The entire Saturn V rocket'],correct:0,why:'The ascent stage launched from the descent stage, which remains on the surface.'},
+    {q:'What should you identify in a reconstruction of what remains?',opts:['The legs and structure of the descent stage','The Earth-return capsule','The Hubble telescope'],correct:0,why:'The lower structure and its landing legs remained on the Moon. The 3D model is a simplified illustration.'}
   ]},
-  apollo: {title:'Planifica una excursión geológica lunar',role:'Geología lunar',steps:[
-    {q:'¿Qué recurso del vehículo permite ampliar el alcance de una excursión?',opts:['Transporte de astronautas y equipo','Un motor para salir de la órbita lunar','Un laboratorio submarino'],correct:0,why:'El Lunar Roving Vehicle permitió recorrer mayores distancias y llevar herramientas y muestras.'},
-    {q:'En una visita a un sitio geológico, ¿qué registrarías?',opts:['Fotografías y muestras con contexto del lugar','Solo la velocidad del vehículo','El clima de la Tierra'],correct:0,why:'La documentación del sitio y las muestras aportan contexto para interpretar la geología lunar.'}
+  apollo: {title:'Plan a lunar geology expedition',role:'Lunar geology',steps:[
+    {q:'Which rover feature lets astronauts explore farther?',opts:['Transporting astronauts and equipment','An engine to leave lunar orbit','An underwater laboratory'],correct:0,why:'The Lunar Roving Vehicle let astronauts travel farther and carry tools and samples.'},
+    {q:'When visiting a geological site, what would you record?',opts:['Photos and samples with their location context','Only the rover’s speed','Earth’s weather'],correct:0,why:'Documenting sites and samples provides context for interpreting lunar geology.'}
   ]},
-  viking1: {title:'Opera un laboratorio estacionario en Marte',role:'Ciencia de superficie',steps:[
-    {q:'Para estudiar el suelo junto al aterrizador, ¿qué acción sería razonable?',opts:['Recoger una muestra con el brazo','Conducir hasta otro cráter','Desplegar un helicóptero'],correct:0,why:'Viking 1 era un aterrizador fijo con un brazo para recolectar material de la superficie.'},
-    {q:'¿Por qué la interpretación de resultados biológicos exige prudencia?',opts:['Porque los experimentos requieren análisis y contexto','Porque la cámara prueba vida por sí sola','Porque cualquier gas detectado confirma organismos'],correct:0,why:'Los resultados de experimentos relacionados con posibles procesos biológicos no equivalen por sí solos a demostrar la existencia de vida.'}
+  viking1: {title:'Operate a stationary laboratory on Mars',role:'Surface science',steps:[
+    {q:'To study soil beside the lander, what would be a reasonable action?',opts:['Collect a sample with the robotic arm','Drive to another crater','Deploy a helicopter'],correct:0,why:'Viking 1 was a stationary lander with an arm for collecting surface material.'},
+    {q:'Why must biological experiment results be interpreted carefully?',opts:['Because experiments require careful analysis and context','Because the camera alone proves life exists','Because detecting any gas confirms organisms'],correct:0,why:'Experiments that investigate possible biological processes do not, on their own, prove life exists.'}
   ]},
-  sojourner: {title:'Investiga una roca con un pequeño rover',role:'Geoquímica marciana',steps:[
-    {q:'¿Qué instrumento ayuda a medir la composición de una roca?',opts:['Espectrómetro APXS','Un panel solar usado como cámara','Una antena de transmisión'],correct:0,why:'El espectrómetro de rayos X de partículas alfa (APXS) ayudó a analizar la composición elemental de rocas y suelo.'},
-    {q:'Antes de acercarte a una roca, ¿qué revisarías?',opts:['La seguridad del terreno y la trayectoria','El brillo de las estrellas terrestres','El color de la interfaz web'],correct:0,why:'Elegir una trayectoria segura es relevante para operar un rover pequeño sobre terreno irregular.'}
+  sojourner: {title:'Investigate a rock with a small rover',role:'Martian geochemistry',steps:[
+    {q:'Which instrument helps measure a rock’s composition?',opts:['APXS spectrometer','A solar panel used as a camera','A radio antenna'],correct:0,why:'The Alpha Particle X-ray Spectrometer (APXS) helped analyze the elemental composition of rocks and soil.'},
+    {q:'Before approaching a rock, what should you check?',opts:['The terrain and a safe path','The brightness of stars seen from Earth','The color of the website interface'],correct:0,why:'Choosing a safe route is important when driving a small rover over uneven ground.'}
   ]},
-  spirit: {title:'Investiga un terreno marciano difícil',role:'Geología y movilidad',steps:[
-    {q:'Ves una roca prometedora a distancia. ¿Cómo evaluarías el objetivo?',opts:['Con imágenes y observaciones previas','Con una foto de otro planeta','Ignorando el relieve circundante'],correct:0,why:'Las cámaras y observaciones del rover ayudaban a elegir objetivos científicos y rutas.'},
-    {q:'Si las ruedas pierden tracción en suelo blando, ¿qué priorizarías?',opts:['Evaluar riesgos y movimientos con cuidado','Acelerar sin observar el terreno','Apagar todos los instrumentos definitivamente'],correct:0,why:'Spirit quedó atascado en 2009; los equipos estudiaron opciones de movimiento y después continuaron haciendo ciencia estacionaria.'}
+  spirit: {title:'Explore challenging Martian terrain',role:'Geology and mobility',steps:[
+    {q:'You spot an interesting rock in the distance. How would you assess it?',opts:['With images and previous observations','With a photo of another planet','By ignoring nearby terrain'],correct:0,why:'The rover’s cameras and observations helped scientists choose targets and routes.'},
+    {q:'If the wheels lose traction in soft soil, what would you prioritize?',opts:['Carefully evaluate risks and possible movements','Speed up without checking the terrain','Permanently turn off all instruments'],correct:0,why:'Spirit became stuck in 2009; its team evaluated possible movements, then continued doing stationary science.'}
   ]},
-  opportunity: {title:'Decide cómo estudiar señales de agua antigua',role:'Investigación geológica',steps:[
-    {q:'Observas capas en una formación rocosa. ¿Qué harías para interpretarlas?',opts:['Documentar estratos y minerales','Calcular la profundidad del océano terrestre','Descartar todas las imágenes'],correct:0,why:'El estudio de capas y minerales ayudó a Opportunity a reconstruir ambientes marcianos antiguos.'},
-    {q:'Una tormenta de polvo reduce la luz solar. ¿Qué recurso resulta crítico?',opts:['Energía disponible para el rover','Combustible de un helicóptero','Oxígeno para una tripulación humana'],correct:0,why:'Opportunity dependía de paneles solares y la gran tormenta de polvo de 2018 redujo su acceso a la energía solar.'}
+  opportunity: {title:'Choose how to study signs of ancient water',role:'Geological research',steps:[
+    {q:'You notice layers in a rock formation. How would you interpret them?',opts:['Document the layers and minerals','Calculate the depth of Earth’s oceans','Discard all images'],correct:0,why:'Studying layers and minerals helped Opportunity reconstruct ancient Martian environments.'},
+    {q:'A dust storm blocks sunlight. Which resource becomes critical?',opts:['Energy available to the rover','Helicopter fuel','Oxygen for a human crew'],correct:0,why:'Opportunity relied on solar panels, and the great 2018 dust storm reduced its access to solar energy.'}
   ]},
-  ingenuity: {title:'Prepara un vuelo experimental en Marte',role:'Ingeniería aeronáutica',steps:[
-    {q:'Antes de despegar, ¿qué condición es esencial?',opts:['Comprobar sistemas y condiciones de vuelo','Conectar un cable eléctrico a la Tierra','Esperar que Marte tenga aire tan denso como la Tierra'],correct:0,why:'Ingenuity debía volar en una atmósfera marciana muy tenue, con controles de vuelo cuidadosamente planificados.'},
-    {q:'¿Qué logro verificó Ingenuity con sus vuelos?',opts:['Vuelo motorizado y controlado en otro planeta','Transporte de astronautas','Extracción de oxígeno de rocas'],correct:0,why:'Ingenuity demostró el vuelo motorizado controlado en Marte y completó 72 vuelos entre 2021 y 2024.'}
+  ingenuity: {title:'Prepare an experimental flight on Mars',role:'Aeronautical engineering',steps:[
+    {q:'Before takeoff, what is essential?',opts:['Check systems and flight conditions','Connect a power cable to Earth','Expect Mars to have air as dense as Earth’s'],correct:0,why:'Ingenuity had to fly in Mars’s very thin atmosphere using carefully planned flight controls.'},
+    {q:'What did Ingenuity demonstrate with its flights?',opts:['Powered, controlled flight on another planet','Transporting astronauts','Extracting oxygen from rocks'],correct:0,why:'Ingenuity demonstrated powered, controlled flight on Mars and completed 72 flights between 2021 and 2024.'}
   ]}
 };
 // V5.3: cada parada científica abre su propia pregunta junto al visor 3D.
@@ -115,10 +115,10 @@ const expedition={stage:0,phase:'travel',score:savedSpaceProgress.score,tries:0,
 function saveSpaceProgress(){try{localStorage.setItem(PROGRESS_KEY,JSON.stringify({score:expedition.score,awarded:[...expedition.awarded]}))}catch{}}
 const waypointPositions=[{x:6,z:-3},{x:9,z:4}];
 const waypointNames={
- surveyor3:['Muestreador del suelo lunar','Registro de imágenes'],apollo11:['Plataforma de descenso','Huellas de la ingeniería'],
- apollo:['Exploración del terreno','Campamento de muestras'],viking1:['Brazo de muestreo','Laboratorio científico'],
- sojourner:['Roca para análisis APXS','Ruta segura'],spirit:['Roca misteriosa','Terreno de difícil tracción'],
- opportunity:['Capas de roca','Tormenta de polvo'],ingenuity:['Primera zona de vuelo','Segundo punto de aterrizaje']
+ surveyor3:['Lunar soil sampler','Image documentation'],apollo11:['Descent platform','Engineering legacy'],
+ apollo:['Terrain exploration','Sample collection site'],viking1:['Sampling arm','Science laboratory'],
+ sojourner:['Rock for APXS analysis','Safe route'],spirit:['Mysterious rock','Low-traction terrain'],
+ opportunity:['Rock layers','Dust storm'],ingenuity:['First flight zone','Second landing site']
 };
 function currentSteps(){return decisions[missions[selected].id].steps;}
 function isStationary(){return driveKind()==='static';}
@@ -127,34 +127,34 @@ function renderExpedition(){
  const steps=currentSteps();const idx=Math.min(expedition.stage,steps.length-1);
  const finished=expedition.phase==='complete';
  $('space-score').textContent=expedition.score;
- $('stars-earned').textContent=`${expedition.stage} / ${steps.length} descubrimientos`;
- $('expedition-progress').textContent=finished?'¡MISIÓN SUPERADA!':`OBJETIVO ${idx+1} DE ${steps.length}`;
- $('expedition-title').textContent=finished?'¡Explorador estelar!':decisions[missions[selected].id].title;
+ $('stars-earned').textContent=`${expedition.stage} / ${steps.length} discoveries`;
+ $('expedition-progress').textContent=finished?'MISSION COMPLETE!':`OBJECTIVE ${idx+1} OF ${steps.length}`;
+ $('expedition-title').textContent=finished?'Star explorer!':decisions[missions[selected].id].title;
  const markers=$('mission-stepper').querySelectorAll('.step');
  markers.forEach((node,i)=>{node.classList.toggle('done',i<expedition.stage || finished);node.classList.toggle('current',!finished&&i===idx);});
  $('activity-next').hidden=true;
  $('activity-choices').replaceChildren();$('activity-choices').hidden=true;
  $('activity-feedback').hidden=true;
- $('activity-reward').textContent='✦ +100 puntos';
+ $('activity-reward').textContent='✦ +100 points';
  if(finished){
-   $('objective-icon').textContent='★';$('objective-status').textContent='¡EXPEDICIÓN COMPLETA!';$('objective-name').textContent='Dos descubrimientos conseguidos';
-   $('objective-help').textContent='¡Ya ayudaste a descubrir la ciencia detrás de esta misión!';
-   $('activity-kind').textContent='INSIGNIA CONSEGUIDA';$('activity-title').textContent='🏅 ¡Guardián de las estrellas!';
-   $('activity-question').textContent='Tus conocimientos hacen avanzar la exploración. ¿Qué tal si visitas otra misión?';
-   $('activity-next').textContent='Explorar otra misión →';$('activity-next').hidden=false;
+   $('objective-icon').textContent='★';$('objective-status').textContent='EXPEDITION COMPLETE!';$('objective-name').textContent='Two discoveries made';
+   $('objective-help').textContent='You helped uncover the science behind this mission!';
+   $('activity-kind').textContent='BADGE EARNED';$('activity-title').textContent='🏅 Guardian of the Stars!';
+   $('activity-question').textContent='Your knowledge helps exploration move forward. Ready to visit another mission?';
+   $('activity-next').textContent='Explore another mission →';$('activity-next').hidden=false;
    pointOfInterest.visible=false;return;
  }
  const name=waypointNames[missionPointsKey()][idx];
  $('objective-name').textContent=name;
  if(expedition.phase==='travel'){
-  $('objective-icon').textContent='◎';$('objective-status').textContent=isStationary()?'INSPECCIÓN CIENTÍFICA':'VE A LA BALIZA LUMINOSA';
-  $('objective-help').textContent=isStationary()?'Examina los puntos azules del equipo para empezar el reto.':'Conduce o vuela hasta el círculo luminoso que marca la siguiente parada.';
-  $('activity-kind').textContent='RETO BLOQUEADO';$('activity-title').textContent=`Parada ${idx+1}: ${name}`;
-  $('activity-question').textContent=isStationary()?'Pulsa uno de los puntos azules sobre la nave para abrir esta pregunta.':'Cuando llegues al objetivo, la pregunta aparecerá aquí mismo. ¡No tienes que bajar!';
+  $('objective-icon').textContent='◎';$('objective-status').textContent=isStationary()?'SCIENTIFIC INSPECTION':'GO TO THE GLOWING BEACON';
+  $('objective-help').textContent=isStationary()?'Inspect the blue hotspots on the spacecraft to begin the challenge.':'Drive or fly to the glowing circle marking your next stop.';
+  $('activity-kind').textContent='CHALLENGE LOCKED';$('activity-title').textContent=`Stop ${idx+1}: ${name}`;
+  $('activity-question').textContent=isStationary()?'Click a blue hotspot on the spacecraft to unlock the question.':'Once you reach the target, the question appears right here. No scrolling needed!';
  }else if(expedition.phase==='question'){
-  $('objective-icon').textContent='🔎';$('objective-status').textContent='OBJETIVO ALCANZADO';
-  $('objective-help').textContent='¡Ya puedes responder en el Centro de control!';
-  $('activity-kind').textContent='PREGUNTA CIENTÍFICA';$('activity-title').textContent=`Desafío ${idx+1}: ${name}`;
+  $('objective-icon').textContent='🔎';$('objective-status').textContent='TARGET REACHED';
+  $('objective-help').textContent='You can now answer in Mission Control!';
+  $('activity-kind').textContent='SCIENCE QUESTION';$('activity-title').textContent=`Challenge ${idx+1}: ${name}`;
   const step=steps[idx];$('activity-question').textContent=step.q;
   $('activity-choices').hidden=false;
   step.opts.forEach((option,i)=>{
@@ -163,20 +163,20 @@ function renderExpedition(){
     btn.addEventListener('click',()=>answerExpedition(i));$('activity-choices').appendChild(btn);
   });
  }else if(expedition.phase==='feedback'){
-  $('objective-icon').textContent='★';$('objective-status').textContent='¡DESCUBRIMIENTO CONSEGUIDO!';
-  $('objective-help').textContent='Ya conoces algo nuevo sobre este equipo espacial.';
-  $('activity-kind').textContent='CONOCIMIENTO DESBLOQUEADO';$('activity-title').textContent='¡Gran trabajo, explorador!';
-  $('activity-question').textContent='Tu descubrimiento ha quedado registrado.';
+  $('objective-icon').textContent='★';$('objective-status').textContent='DISCOVERY MADE!';
+  $('objective-help').textContent='You just learned something new about this spacecraft.';
+  $('activity-kind').textContent='KNOWLEDGE UNLOCKED';$('activity-title').textContent='Great job, explorer!';
+  $('activity-question').textContent='Your discovery has been recorded.';
   $('activity-feedback').hidden=false;
   $('activity-feedback').textContent=expedition.feedback;
   $('activity-next').hidden=false;
-  $('activity-next').textContent=idx===steps.length-1?'Ver mi recompensa ★':'Ir al siguiente objetivo →';
+  $('activity-next').textContent=idx===steps.length-1?'View my reward ★':'Go to the next target →';
  }
 }
 function reachObjective(){
  if(expedition.phase!=='travel')return;
  expedition.phase='question';driving.arrived=true;pointOfInterest.visible=false;
- setDriveStatus('¡Objetivo alcanzado! Responde la pregunta del Centro de control, justo a la derecha.');
+ setDriveStatus('Target reached! Answer the question in Mission Control, right beside you.');
  $('drive-console').classList.add('drive-success');
  renderExpedition();
 }
@@ -191,11 +191,11 @@ function answerExpedition(choice){
   const scoreKey=`${missionPointsKey()}:${expedition.stage}`;
   const newlyAwarded=!expedition.awarded.has(scoreKey);
   if(newlyAwarded){expedition.score+=bonus;expedition.awarded.add(scoreKey);saveSpaceProgress();}
-  expedition.phase='feedback';expedition.feedback=`🌟 ¡Respuesta correcta! ${newlyAwarded?'+'+bonus+' puntos estelares.':'Ya habías ganado los puntos de este reto.'} ${step.why}`;
+  expedition.phase='feedback';expedition.feedback=`🌟 Correct answer! ${newlyAwarded?'+'+bonus+' star points.':'You have already earned points for this challenge.'} ${step.why}`;
   renderExpedition();
  }else{
   $('activity-feedback').hidden=false;
-  $('activity-feedback').textContent=`💡 Buen intento. ${step.why} Vuelve a elegir la respuesta que corresponde.`;
+  $('activity-feedback').textContent=`💡 Good try. ${step.why} Choose the correct answer and try again.`;
   buttons.forEach((b,i)=>{if(i!==choice)b.disabled=false;});
   expedition.feedback='';
  }
@@ -217,7 +217,7 @@ function advanceExpedition(){
  if(expedition.phase!=='feedback')return;
  expedition.stage++;
  if(expedition.stage>=currentSteps().length){expedition.phase='complete';}
- else{expedition.phase='travel';expedition.tries=0;driving.arrived=false;positionWaypoint();setDriveStatus(isStationary()?'Inspecciona otro instrumento para comenzar el segundo reto.':'¡Buen trabajo! Ahora ve a la siguiente baliza luminosa.');$('drive-console').classList.remove('drive-success');}
+ else{expedition.phase='travel';expedition.tries=0;driving.arrived=false;positionWaypoint();setDriveStatus(isStationary()?'Inspect another instrument to begin the second challenge.':'Great job! Now head to the next glowing beacon.');$('drive-console').classList.remove('drive-success');}
  renderExpedition();
 }
 $('activity-next').addEventListener('click',advanceExpedition);
@@ -227,10 +227,10 @@ let selected=0,chapter=0;
 let destinationFilter='MARTE';
 
 function drawTimeline(){
-  $('timeline').innerHTML=missions.map((m,i)=>({...m,i})).filter(m=>destinationFilter==='TODOS'||m.place===destinationFilter).map(m=>`<button class="time-item ${m.i===selected?'active':''}" data-index="${m.i}" aria-pressed="${m.i===selected}"><span class="time-year">${m.year}</span><span class="time-name">${m.name}</span><small class="time-type">🚀 Explorar misión</small></button>`).join('');
+  $('timeline').innerHTML=missions.map((m,i)=>({...m,i})).filter(m=>destinationFilter==='TODOS'||m.place===destinationFilter).map(m=>`<button class="time-item ${m.i===selected?'active':''}" data-index="${m.i}" aria-pressed="${m.i===selected}"><span class="time-year">${m.year}</span><span class="time-name">${m.name}</span><small class="time-type">🚀 Explore mission</small></button>`).join('');
   document.querySelectorAll('.time-item').forEach(b=>b.addEventListener('click',()=>selectMission(Number(b.dataset.index))));
 }
-function selectMission(i){selected=i;chapter=0;const m=missions[i];drawTimeline();$('mission-meta').textContent=`${m.place} / ${m.year}`;$('mission-title').textContent=m.title;$('mission-subtitle').textContent=m.subtitle;$('mission-quote').textContent=m.quote;$('mission-stats').innerHTML=m.stats.map(([v,l])=>`<div><div class="stat-value">${v}</div><div class="stat-label">${l}</div></div>`).join('');$('viewer-label').textContent=`${m.name.toUpperCase()} · RECREACIÓN 3D EDUCATIVA`; $('model-status').textContent='● MODELO 3D INTERACTIVO';renderChapter();drawSources();rebuildModel(m.id);resetExpedition();}
+function selectMission(i){selected=i;chapter=0;const m=missions[i];drawTimeline();$('mission-meta').textContent=`${m.place==='LUNA'?'MOON':'MARS'} / ${m.year}`;$('mission-title').textContent=m.title;$('mission-subtitle').textContent=m.subtitle;$('mission-quote').textContent=m.quote;$('mission-stats').innerHTML=m.stats.map(([v,l])=>`<div><div class="stat-value">${v}</div><div class="stat-label">${l}</div></div>`).join('');$('viewer-label').textContent=`${m.name.toUpperCase()} · EDUCATIONAL 3D RECREATION`; $('model-status').textContent='● INTERACTIVE 3D MODEL';renderChapter();drawSources();rebuildModel(m.id);resetExpedition();}
 function renderChapter(){const m=missions[selected],c=m.chapters[chapter];$('chapter-title').textContent=c[0];$('chapter-text').textContent=c[1];$('chapter-count').textContent=`${chapter+1} / ${m.chapters.length}`;$('prev-chapter').disabled=chapter===0;$('next-chapter').disabled=chapter===m.chapters.length-1;}
 $('prev-chapter').addEventListener('click',()=>{if(chapter>0){chapter--;renderChapter();}});
 $('next-chapter').addEventListener('click',()=>{if(chapter<missions[selected].chapters.length-1){chapter++;renderChapter();}});
@@ -442,29 +442,29 @@ function ingenuityHelicopter(){
 }
 const newInstrumentData={
  surveyor3:[
-  {label:'Cámara de televisión',pos:[.10,2.39,.28],description:'La cámara registró fotografías de la superficie de la Luna y apoyó los estudios de textura y relieve.'},
-  {label:'Muestreador de superficie',pos:[1.39,.36,1.42],description:'Un brazo equipado con pala excavó y manipuló el suelo para estudiar su comportamiento.'},
-  {label:'Patas de aterrizaje',pos:[1.74,.22,0],description:'Tres patas con apoyos distribuyeron la carga del aterrizador sobre el regolito lunar.'}
+  {label:'Television camera',pos:[.10,2.39,.28],description:'The camera photographed the lunar surface and helped scientists study its texture and terrain.'},
+  {label:'Surface sampler',pos:[1.39,.36,1.42],description:'A robotic arm with a scoop dug into and moved the soil to study its behavior.'},
+  {label:'Landing legs',pos:[1.74,.22,0],description:'Three landing legs spread the lander’s weight across the lunar soil.'}
  ],
  apollo11:[
-  {label:'Etapa de descenso',pos:[0,1.62,.94],description:'Esta etapa sostuvo el alunizaje y quedó sobre el suelo lunar tras el despegue de la etapa superior.'},
-  {label:'Pata y platillo de apoyo',pos:[1.68,.18,1.65],description:'El tren de aterrizaje distribuyó las fuerzas al entrar en contacto con la superficie.'},
-  {label:'Escalera de acceso',pos:[.60,.80,1.15],description:'Los astronautas descendieron del módulo lunar hacia la superficie mediante una escalera.'}
+  {label:'Etapa de descenso',pos:[0,1.62,.94],description:'This stage supported the Moon landing and remained on the lunar surface after the upper stage lifted off.'},
+  {label:'Landing leg and footpad',pos:[1.68,.18,1.65],description:'The landing gear spread the force of touchdown across the surface.'},
+  {label:'Access ladder',pos:[.60,.80,1.15],description:'Astronauts climbed down a ladder from the lunar module to the surface.'}
  ],
  viking1:[
-  {label:'Antena de alta ganancia',pos:[-.72,2.18,-.03],description:'El sistema de comunicaciones permitió transmitir información científica desde Marte.'},
-  {label:'Brazo recolector de muestras',pos:[1.57,.45,1.18],description:'El dispositivo de muestreo recogió material marciano para analizarlo en los experimentos del aterrizador.'},
-  {label:'Generadores termoeléctricos',pos:[.83,1.72,.35],description:'Los RTG proporcionaron energía eléctrica utilizando el calor de la desintegración radiactiva.'}
+  {label:'High-gain antenna',pos:[-.72,2.18,-.03],description:'The communications system transmitted scientific data from Mars.'},
+  {label:'Sample collection arm',pos:[1.57,.45,1.18],description:'The sampling device collected Martian material for analysis by the lander’s experiments.'},
+  {label:'Thermoelectric generators',pos:[.83,1.72,.35],description:'The RTGs generated electricity using heat from radioactive decay.'}
  ],
  sojourner:[
-  {label:'Panel solar',pos:[0,1.02,0],description:'Sojourner utilizaba células solares como fuente principal de energía y contaba también con baterías.'},
-  {label:'Sistema de seis ruedas',pos:[-.75,.36,.72],description:'El sistema de movilidad ayudó al pequeño rover a recorrer el terreno irregular cerca de Pathfinder.'},
-  {label:'Espectrómetro APXS',pos:[-.90,.62,.04],description:'El instrumento Alpha Proton X-Ray Spectrometer estudiaba la composición elemental de rocas y suelo.'}
+  {label:'Solar panel',pos:[0,1.02,0],description:'Sojourner used solar cells as its main power source and also carried batteries.'},
+  {label:'Six-wheel system',pos:[-.75,.36,.72],description:'The mobility system helped the small rover move across uneven ground near Pathfinder.'},
+  {label:'APXS spectrometer',pos:[-.90,.62,.04],description:'The Alpha Proton X-Ray Spectrometer studied the elemental makeup of rocks and soil.'}
  ],
  ingenuity:[
-  {label:'Rotores coaxiales',pos:[1.15,2.04,0],description:'Dos conjuntos de aspas contrarrotatorias generaban sustentación en la atmósfera tenue de Marte.'},
-  {label:'Panel solar',pos:[0,2.34,.07],description:'Este panel recargaba las baterías que impulsaban los vuelos y sistemas de Ingenuity.'},
-  {label:'Cuerpo y cámaras',pos:[.10,.90,.41],description:'El cuerpo alojaba electrónica, sensores y cámaras de navegación y fotografía del terreno.'}
+  {label:'Coaxial rotors',pos:[1.15,2.04,0],description:'Two sets of counter-rotating blades generated lift in Mars’s thin atmosphere.'},
+  {label:'Solar panel',pos:[0,2.34,.07],description:'This panel charged the batteries that powered Ingenuity’s flights and systems.'},
+  {label:'Body and cameras',pos:[.10,.90,.41],description:'The body housed electronics, sensors, and cameras for navigation and terrain photography.'}
  ]
 };
 
@@ -500,24 +500,24 @@ function makeTerrain(lunar){seed=lunar?4321:97231;
 }
 const instrumentData={
   opportunity:[
-    {label:'Pancam: cámaras panorámicas',pos:[.14,2.27,.37],description:'La Pancam captaba panoramas estéreo y fotografías en distintas longitudes de onda para estudiar minerales y terreno. Fuente: NASA Mars Exploration Rovers / Science Instruments.'},
-    {label:'Paneles solares',pos:[-1.48,1.40,.05],description:'Convertían la luz del Sol en energía. Las tormentas de polvo podían reducir la energía disponible y afectar las operaciones.'},
-    {label:'Brazo instrumental',pos:[-1.53,.60,1.13],description:'Permitía acercar instrumentos a las rocas y el suelo para obtener mediciones científicas. Incluía un instrumento de abrasión de rocas.'}
+    {label:'Pancam: panoramic cameras',pos:[.14,2.27,.37],description:'Pancam captured stereo panoramas and images at different wavelengths to study minerals and terrain. Source: NASA Mars Exploration Rovers / Science Instruments.'},
+    {label:'Solar panels',pos:[-1.48,1.40,.05],description:'They converted sunlight into electricity. Dust storms could reduce available power and affect operations.'},
+    {label:'Instrument arm',pos:[-1.53,.60,1.13],description:'It positioned instruments next to rocks and soil to take scientific measurements, including with a rock abrasion tool.'}
   ],
   spirit:[
-    {label:'Pancam: cámaras panorámicas',pos:[.14,2.27,.37],description:'Sus cámaras estereoscópicas permitían observar el paisaje y apoyar la selección de sitios de estudio.'},
-    {label:'Paneles solares',pos:[-1.48,1.40,.05],description:'Los paneles solares alimentaban los sistemas científicos y de movilidad del rover.'},
-    {label:'Brazo científico',pos:[-1.53,.60,1.13],description:'Los instrumentos del brazo examinaban materiales de la superficie para reconstruir antiguos ambientes marcianos.'}
+    {label:'Pancam: panoramic cameras',pos:[.14,2.27,.37],description:'Its stereo cameras helped observe the landscape and choose study sites.'},
+    {label:'Solar panels',pos:[-1.48,1.40,.05],description:'Solar panels powered the rover’s scientific instruments and mobility systems.'},
+    {label:'Science arm',pos:[-1.53,.60,1.13],description:'Instruments on the arm examined surface materials to learn about ancient Martian environments.'}
   ],
   apollo:[
-    {label:'Asientos de astronautas',pos:[-.52,1.46,-.22],description:'El vehículo lunar transportó a dos astronautas y equipo científico durante las excursiones de Apollo 17.'},
-    {label:'Ruedas para suelo lunar',pos:[-1.18,.50,.84],description:'Cuatro ruedas diseñadas para desplazarse en el regolito lunar.'},
-    {label:'Área de equipamiento',pos:[1.07,1.10,.40],description:'El rover transportaba herramientas e instrumentos para ampliar el recorrido científico de los astronautas.'}
+    {label:'Astronaut seats',pos:[-.52,1.46,-.22],description:'The lunar rover carried two astronauts and scientific equipment during Apollo 17 excursions.'},
+    {label:'Wheels for lunar soil',pos:[-1.18,.50,.84],description:'Four wheels designed to travel across the lunar regolith.'},
+    {label:'Equipment area',pos:[1.07,1.10,.40],description:'The rover carried tools and instruments to extend astronauts’ scientific exploration.'}
   ]
 };
 Object.assign(instrumentData,newInstrumentData);
 const infoPanel=document.createElement('div');infoPanel.id='instrument-info';infoPanel.setAttribute('role','status');
-infoPanel.innerHTML='<button id="close-instrument" aria-label="Cerrar información">×</button><strong id="instrument-title"></strong><p id="instrument-description"></p>';
+infoPanel.innerHTML='<button id="close-instrument" aria-label="Close information">×</button><strong id="instrument-title"></strong><p id="instrument-description"></p>';
 host.appendChild(infoPanel);
 infoPanel.querySelector('#close-instrument').addEventListener('click',()=>infoPanel.classList.remove('shown'));
 let markers=[];
@@ -552,7 +552,7 @@ function setLighting(){const lunar=missions[selected].place==='LUNA';
  hemi.intensity=isSunset?1:1.4;
  sun.color.set(lunar?0xeaf0ff:isSunset?0xffa261:0xffe3c5);
  sun.intensity=isSunset?2.7:3.4;
- $('lighting-toggle').textContent=isSunset?'☀ Vista diurna':'◐ Atardecer';
+ $('lighting-toggle').textContent=isSunset?'☀ Day view':'◐ Sunset';
 }
 function rebuildModel(id){scene.remove(modelGroup);scene.remove(terrainGroup);
  modelGroup=new THREE.Group();terrainGroup=new THREE.Group();scene.add(modelGroup,terrainGroup);
@@ -575,7 +575,7 @@ const driving={active:false,x:0,z:0,yaw:0,altitude:0,distance:0,arrived:false};
 const keys=new Set();const heldButtons=new Set();
 const pointOfInterest=new THREE.Group();scene.add(pointOfInterest);
 const driveLabels={
- apollo:'Estación geológica lunar',spirit:'Roca de interés geológico',opportunity:'Afloramiento sedimentario',sojourner:'Roca de estudio APXS',ingenuity:'Zona de vuelo experimental'
+ apollo:'Lunar geology station',spirit:'Geologically interesting rock',opportunity:'Sedimentary outcrop',sojourner:'APXS study rock',ingenuity:'Experimental flight zone'
 };
 const POI={x:6,z:-3.0};
 let lastFrame=performance.now();
@@ -583,20 +583,20 @@ function driveKind(){const id=missions[selected].id;return id==='ingenuity'?'fli
 function resetMovement(){
  driving.x=0;driving.z=0;driving.yaw=0;driving.altitude=0;driving.distance=0;driving.arrived=false;
  modelGroup.position.set(0,0,0);modelGroup.rotation.y=0;keys.clear();heldButtons.clear();
- $('drive-distance').textContent='Recorrido: 0.0 m (sim.)';$('drive-height').textContent='Altura: 0.0 m (sim.)';
- setDriveStatus(driveKind()==='flight'?'Usa E para despegar y luego avanza hasta la baliza.':'Encuentra la baliza científica luminosa en el terreno.');
+ $('drive-distance').textContent='Distance: 0.0 m (sim.)';$('drive-height').textContent='Altitude: 0.0 m (sim.)';
+ setDriveStatus(driveKind()==='flight'?'Press E to take off, then head toward the beacon.':'Find the glowing science beacon on the terrain.');
 }
 function setDriveStatus(message){$('drive-status').textContent=message;}
 function configureDrive(){
  const kind=driveKind();driving.active=false;controls.enabled=true;resetMovement();
  const stationary=kind==='static';
  $('drive-console').classList.toggle('drive-static',stationary);
- $('drive-title').textContent=kind==='flight'?'Pilota Ingenuity':stationary?'Inspección de equipo estacionario':'Conduce el vehículo de exploración';
- $('drive-mode').hidden=stationary;$('drive-body').hidden=true;$('drive-mode').textContent=kind==='flight'?'Iniciar vuelo':'Activar conducción';
+ $('drive-title').textContent=kind==='flight'?'Pilot Ingenuity':stationary?'Inspect a stationary spacecraft':'Drive the exploration rover';
+ $('drive-mode').hidden=stationary;$('drive-body').hidden=true;$('drive-mode').textContent=kind==='flight'?'Start flight':'Start driving';
  $('drive-flight').hidden=kind!=='flight';
- $('drive-instructions').textContent=kind==='flight'?'WASD/flechas: moverse y girar · E: ascender · Q: descender · M: cambiar cámara':'WASD/flechas: avanzar, retroceder y girar · M: cambiar cámara';
- if(stationary)setDriveStatus('Este equipo no se desplazaba. Explora sus puntos azules para conocerlo.');
- else {setDriveStatus('Activa el simulador para llegar a la baliza científica.');}
+ $('drive-instructions').textContent=kind==='flight'?'WASD/arrow keys: move and turn · E: ascend · Q: descend · M: change camera':'WASD/arrow keys: forward, backward, and turn · M: change camera';
+ if(stationary)setDriveStatus('This spacecraft did not move. Explore its blue hotspots to learn about it.');
+ else {setDriveStatus('Start the simulator to reach the science beacon.');}
  pointOfInterest.clear();pointOfInterest.visible=!stationary;
  if(!stationary){
   const ring=new THREE.Mesh(new THREE.TorusGeometry(.7,.055,10,40),new THREE.MeshBasicMaterial({color:0x6ae6ff}));ring.rotation.x=Math.PI/2;ring.position.y=.18;
@@ -609,9 +609,9 @@ function configureDrive(){
 function toggleDrive(){if(driveKind()==='static')return;
  driving.active=!driving.active;controls.enabled=!driving.active;keys.clear();heldButtons.clear();
  $('drive-body').hidden=!driving.active;
- $('drive-mode').textContent=driving.active?'Salir del simulador':driveKind()==='flight'?'Iniciar vuelo':'Activar conducción';
- if(driving.active){setDriveStatus('Desplázate hacia la baliza luminosa para desbloquear un descubrimiento.');updateFollowCamera(true);}
- else {setDriveStatus('Modo inspección: gira el modelo y selecciona sus instrumentos.');controls.target.copy(modelGroup.position).add(new THREE.Vector3(0,1,0));controls.update();}
+ $('drive-mode').textContent=driving.active?'Exit simulator':driveKind()==='flight'?'Start flight':'Start driving';
+ if(driving.active){setDriveStatus('Head toward the glowing beacon to unlock a discovery.');updateFollowCamera(true);}
+ else {setDriveStatus('Inspection mode: rotate the model and select its instruments.');controls.target.copy(modelGroup.position).add(new THREE.Vector3(0,1,0));controls.update();}
 }
 $('drive-mode').addEventListener('click',toggleDrive);
 $('drive-reset').addEventListener('click',()=>{resetMovement();if(driving.active)updateFollowCamera(true);});
@@ -622,7 +622,7 @@ document.addEventListener('keydown',e=>{
  if(!driving.active || e.altKey||e.ctrlKey||e.metaKey||['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName))return;
  const supported=[...Object.values(movementCodes).flat(),'KeyM'];
  if(supported.includes(e.code)){e.preventDefault();keys.add(e.code);}
- if(e.code==='KeyM'&&!e.repeat){driving.active=false;controls.enabled=true;$('drive-body').hidden=true;$('drive-mode').textContent=driveKind()==='flight'?'Iniciar vuelo':'Activar conducción';setDriveStatus('Modo inspección activado.');keys.clear();}
+ if(e.code==='KeyM'&&!e.repeat){driving.active=false;controls.enabled=true;$('drive-body').hidden=true;$('drive-mode').textContent=driveKind()==='flight'?'Start flight':'Start driving';setDriveStatus('Inspection mode enabled.');keys.clear();}
 });
 document.addEventListener('keyup',e=>keys.delete(e.code));
 for(const button of document.querySelectorAll('[data-drive]')){
@@ -661,15 +661,15 @@ if (kind === 'ground') {
   }
 }
 
-  } else setDriveStatus('Límite de la zona de exploración: cambia de dirección.');
+  } else setDriveStatus('Exploration zone boundary: change direction.');
  }
  const lunar=missions[selected].place==='LUNA';
  const ground=terrainHeight(driving.x,driving.z,lunar)-terrainHeight(0,0,lunar);
  modelGroup.position.set(driving.x,ground+(kind==='flight'?driving.altitude:0),driving.z);
  modelGroup.rotation.y=driving.yaw;
  if(kind==='flight'&&driving.altitude>.04){for(let i=0;i<ingenuityRotors.length;i++)ingenuityRotors[i].rotation.y+=(i?1:-1)*dt*28;}
- $('drive-distance').textContent=`Recorrido: ${driving.distance.toFixed(1)} m (sim.)`;
- $('drive-height').textContent=`Altura: ${driving.altitude.toFixed(1)} m (sim.)`;
+ $('drive-distance').textContent=`Distance: ${driving.distance.toFixed(1)} m (sim.)`;
+ $('drive-height').textContent=`Altitude: ${driving.altitude.toFixed(1)} m (sim.)`;
  const wp=waypointPositions[Math.min(expedition.stage,waypointPositions.length-1)];
  if(expedition.phase==='travel' && Math.hypot(driving.x-wp.x,driving.z-wp.z)<1.55 && (kind!=='flight'||driving.altitude>.35)){reachObjective();}
  updateFollowCamera();
@@ -692,6 +692,6 @@ document.querySelectorAll('[data-destination]').forEach(b=>b.addEventListener('c
   if(current.place!==destinationFilter){
     const idx=missions.findIndex(m=>m.place===destinationFilter);if(idx>=0)selectMission(idx);
   } else drawTimeline();
-  document.getElementById('destination-status').textContent=`${missions.filter(m=>m.place===destinationFilter).length} historias en ${destinationFilter==='LUNA'?'la Luna':'Marte'}`;
+  document.getElementById('destination-status').textContent=`${missions.filter(m=>m.place===destinationFilter).length} stories on ${destinationFilter==='LUNA'?'the Moon':'Mars'}`;
 }));
 selectMission(missions.findIndex(m=>m.id==='opportunity'));resize();animate();

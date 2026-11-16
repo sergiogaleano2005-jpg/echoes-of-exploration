@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echoes of Exploration | NASA Space Apps</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/space-redesign.css', v='54') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/space-v56.css', v='56') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#inicio" class="brand"><span class="brand-icon">✦</span> ECHOES <span class="muted">OF EXPLORATION</span></a>
+    <div class="topbar-right"><span class="tag">PROTOTIPO EDUCATIVO</span><a href="#fuentes">Fuentes NASA ↗</a></div>
+  </header>
+  <main>
+    <section class="intro space-section">
+      <div class="eyebrow">NASA SPACE APPS CHALLENGE · EXPERIENCIA INTERACTIVA</div>
+      <h1>Las misiones terminan.<br><span>Sus historias permanecen.</span></h1>
+      <p>Viaja a través del tiempo, explora los equipos que quedaron en otros mundos y descubre cómo cambiaron nuestra comprensión del universo.</p>
+
+<!-- Decoraciones de la portada -->
+<div class="space-decor rocket"
+     style="top: 100px; right: 25%;">
+  🚀
+</div>
+
+<div class="space-decor star"
+     style="top: 80px; left: 8%;">
+  ✦
+</div>
+
+<div class="space-decor star"
+     style="bottom: 65px; right: 25%;">
+  ✦
+</div>
+
+<div class="space-decor satellite"
+     style="top: 55px; right: 8%;">
+  🛰️
+</div>
+
+<div class="space-decor planet blue ring"
+     style="width: 85px; height: 85px; left: 3%; bottom: 25px;">
+</div>
+
+      <div class="orb orb-one"></div><div class="orb orb-two"></div>
+    </section>
+    <section id="explorar" class="explore">
+      <div class="section-heading"><div><span class="eyebrow">01 / EXPLORA EL PASADO</span><h2>Una línea del tiempo. Infinitas historias.</h2></div><p>Selecciona una misión para viajar hasta su historia.</p></div>
+      <div class="destination-picker" role="group" aria-label="Seleccionar destino espacial">
+        <button type="button" data-destination="LUNA" class="destination planet-card" aria-pressed="false">
+          <img src="{{ url_for('static', filename='images/luna.webp') }}" alt="La Luna vista desde el espacio, con sus cráteres" loading="lazy">
+          <span class="planet-info"><span class="planet-label">EXPLORACIÓN LUNAR</span><strong>La Luna</strong><small>3 historias · Explorar misiones <span aria-hidden="true">↗</span></small></span>
+        </button>
+        <button type="button" data-destination="MARTE" class="destination planet-card selected" aria-pressed="true">
+          <img src="{{ url_for('static', filename='images/marte.webp') }}" alt="Marte visto desde el espacio, con su superficie rojiza" loading="lazy">
+          <span class="planet-info"><span class="planet-label">EXPLORACIÓN MARCIANA</span><strong>Marte</strong><small>5 historias · Explorar misiones <span aria-hidden="true">↗</span></small></span>
+        </button>
+      </div>
+      <div id="destination-status" class="destination-status" role="status">5 historias en Marte</div>
+      <div class="timeline" id="timeline" aria-label="Seleccionar misión"></div>
+      <article class="mission-brief" aria-live="polite">
+        <div class="brief-main">
+          <div class="brief-kicker"><span class="eyebrow" id="mission-meta"></span><span class="mission-chip">HISTORIA DE LA MISIÓN</span></div>
+          <h2 id="mission-title"></h2>
+          <p class="mission-subtitle" id="mission-subtitle"></p>
+          <div class="stats" id="mission-stats"></div>
+        </div>
+        <div class="brief-story">
+          <div class="story-quote" id="mission-quote"></div>
+          <div class="chapter"><span class="eyebrow">DESCUBRE SU HISTORIA</span><h3 id="chapter-title"></h3><p id="chapter-text"></p></div>
+          <div class="chapter-controls"><button id="prev-chapter" class="ghost" type="button">← Anterior</button><span id="chapter-count"></span><button id="next-chapter" class="ghost" type="button">Siguiente capítulo →</button></div>
+        </div>
+      </article>
+      <div class="expedition-heading"><div><span class="eyebrow">02 / EXPEDICIÓN INTERACTIVA</span><h2>¡Explora, investiga y gana estrellas!</h2><p>Conduce hasta el objetivo y responde a su lado. No tendrás que salir del simulador.</p></div><div class="score-pill" aria-live="polite"><span>✦ PUNTOS ESTELARES</span><strong id="space-score">0</strong></div></div>
+      <div class="mission-layout">
+        <div class="viewer-panel">
+          <div class="viewer-bar"><span id="viewer-label">EXPLORACIÓN 3D · MODELO ILUSTRATIVO</span><span class="live-dot" id="model-status">● MODELO INTERACTIVO</span></div>
+          <div id="scene" aria-label="Escenario tridimensional del destino espacial"><div id="archive-note" class="archive-note" hidden><strong>RECREACIÓN EDUCATIVA</strong><span>Los vehículos y el terreno son modelos ilustrativos, no reconstrucciones exactas.</span></div></div>
+          <div class="drive-console" id="drive-console" aria-label="Simulador interactivo de desplazamiento">
+            <div class="drive-console-head"><div><strong id="drive-title">Explora la superficie</strong><span id="drive-status" role="status" aria-live="polite">Selecciona el modo para comenzar.</span></div><button type="button" id="drive-mode" class="primary small">Activar conducción</button></div>
+            <div class="drive-console-body" id="drive-body" hidden>
+              <div class="drive-pad" role="group" aria-label="Controles de desplazamiento">
+                <button type="button" class="drive-button" data-drive="forward" aria-label="Avanzar">▲</button>
+                <div class="drive-pad-row"><button type="button" class="drive-button" data-drive="left" aria-label="Girar izquierda">◀</button><button type="button" class="drive-button" data-drive="back" aria-label="Retroceder">▼</button><button type="button" class="drive-button" data-drive="right" aria-label="Girar derecha">▶</button></div>
+              </div>
+              <div class="drive-details"><p id="drive-instructions">WASD o flechas: conducir. M: cambiar cámara.</p><div class="drive-data"><span id="drive-distance">Recorrido: 0.0 m (sim.)</span><span id="drive-height">Altura: 0.0 m (sim.)</span></div><div class="drive-flight" id="drive-flight" hidden><button type="button" data-drive="up" class="ghost">E · Ascender</button><button type="button" data-drive="down" class="ghost">Q · Descender</button></div><button type="button" id="drive-reset" class="ghost">↺ Reiniciar posición</button></div>
+            </div>
+          </div>
+          <div class="viewer-bottom"><span>En inspección: arrastra para girar · Pulsa los puntos azules para conocer instrumentos</span><button id="lighting-toggle" class="ghost" type="button">◐ Atardecer</button><button id="reset-camera" class="ghost" type="button">Recentrar vista ↺</button></div>
+        </div>
+        <aside class="expedition-panel" aria-labelledby="expedition-title">
+          <div class="expedition-top"><span class="eyebrow">CENTRO DE CONTROL · A TU LADO</span><span id="expedition-progress" class="expedition-counter">Objetivo 1 de 2</span></div>
+          <h3 id="expedition-title">Tu siguiente descubrimiento</h3>
+          <div class="mission-stepper" id="mission-stepper" aria-label="Progreso de la expedición"><span class="step current">1</span><span class="step-line"></span><span class="step">2</span><span class="step-line"></span><span class="step">★</span></div>
+          <div class="objective-banner" id="objective-banner"><span class="objective-icon" id="objective-icon">◎</span><div><span class="objective-label" id="objective-status">ENCUENTRA EL OBJETIVO</span><strong id="objective-name">Punto científico</strong><p id="objective-help">Acércate a la baliza brillante para comenzar.</p></div></div>
+          <div class="activity-card" id="activity-card" aria-live="polite">
+            <div class="activity-heading"><span id="activity-kind">RETO CIENTÍFICO</span><span id="activity-reward">✦ +100</span></div>
+            <h4 id="activity-title">¡Tu misión está lista!</h4>
+            <p id="activity-question">Primero alcanza el objetivo marcado en el terreno.</p>
+            <div id="activity-choices" class="activity-choices" role="group" aria-label="Opciones del reto" hidden></div>
+            <div id="activity-feedback" class="activity-feedback" role="status" aria-live="polite" hidden></div>
+            <button type="button" id="activity-next" class="primary" hidden>Continuar →</button>
+          </div>
+          <div class="expedition-footer"><span id="stars-earned">0 / 2 descubrimientos</span><button id="restart-expedition" class="ghost" type="button">↺ Repetir expedición</button></div>
+          <p class="expedition-disclaimer">Aventura educativa inspirada en misiones reales. Recorridos, puntuaciones y posiciones son ficticios.</p>
+        </aside>
+      </div>
+    </section>
+    <section id="fuentes" class="sources"><div class="eyebrow">04 / CONOCIMIENTO VERIFICABLE</div><h2>Exploración basada en ciencia real</h2><p>Los hechos y fechas proceden de fuentes oficiales. Los diálogos en primera persona son <strong>recreaciones narrativas</strong>, no transmisiones auténticas. Los ocho modelos 3D y sus terrenos son recreaciones artísticas construidas con geometría, no reconstrucciones exactas ni modelos oficiales de NASA. Las actividades y los desplazamientos son simulaciones didácticas; sus velocidades, distancias y vuelos no representan telemetría real de NASA.</p><ul id="sources-list"></ul><p class="footer-note">Prototipo independiente creado para fines educativos. No es una aplicación oficial de NASA.</p></section>
+  </main>
+  <footer>✦ ECHOES OF EXPLORATION <span>Built with curiosity · 2026</span></footer>
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"}}</script>
+  <script type="module" src="{{ url_for('static', filename='js/main.js', v='530') }}"></script>
+  <script defer src="{{ url_for('static', filename='js/space-redesign.js', v='54') }}"></script>
+  <script defer src="{{ url_for('static', filename='js/space-v56.js', v='56') }}"></script>
+</body>
+</html>

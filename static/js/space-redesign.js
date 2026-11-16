@@ -29,7 +29,7 @@
       button.style.setProperty('--mission-art', `url("${base}${meta[0]}")`);
       button.style.setProperty('--accent', meta[1]);
       const caption = button.querySelector('.time-type');
-      if (caption) caption.textContent = '🚀 Explorar misión →';
+      if (caption) caption.textContent = '🚀 Explore mission →';
     });
   }
   function scheduleEnhance() {
@@ -41,7 +41,7 @@
   shell.className = 'timeline-shell';
   root.parentNode.insertBefore(shell, root);
   shell.appendChild(root);
-  for (const [direction, label] of [['prev', 'Misiones anteriores'], ['next', 'Siguientes misiones']]) {
+  for (const [direction, label] of [['prev', 'Previous missions'], ['next', 'Next missions']]) {
     const arrow = document.createElement('button');
     arrow.type = 'button'; arrow.className = `timeline-arrow ${direction}`;
     arrow.textContent = direction === 'prev' ? '‹' : '›';

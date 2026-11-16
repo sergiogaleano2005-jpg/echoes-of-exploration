@@ -16,7 +16,7 @@
     const objective=panel?.querySelector('.objective-banner');
     if(panel && objective && !panel.querySelector('.expedition-v56-art')){
       const decorative=document.createElement('div');decorative.className='expedition-v56-art';decorative.setAttribute('aria-hidden','true');
-      decorative.innerHTML='<span class="v56-note">Tu próximo descubrimiento ✦</span><img src="/static/images/design/rocket.svg" alt="" loading="lazy">';
+      decorative.innerHTML='<span class="v56-note">Your next discovery ✦</span><img src="/static/images/design/rocket.svg" alt="" loading="lazy">';
       objective.before(decorative);
     }
   }
